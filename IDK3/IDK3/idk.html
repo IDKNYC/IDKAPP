@@ -1,0 +1,77 @@
+<!DOCTYPE>
+<html>
+    <style>
+//        CSS styles can go here
+    </style>
+    <body>
+        <div id='randamize' class='page'>
+            <div class='form-area'>
+                <div class='item-row'>
+                    <input type='entry' placeholder='enter word' />
+                </div>
+            </div>
+            
+            <button class='add-button'>Add another</button>
+            <button class='randamize-button'>Randamize</button>
+        </div>
+        
+        <script>
+            (function(){
+             
+                 var randPage = document.getElementById('randamize');
+                 var formArea = document.querySelector('.form-area');
+                 var addButton = document.querySelector('.add-button');
+                 var randButton = document.querySelector('.randamize-button');
+             
+                 addButton.addEventListener('click', addRow, false);
+                 randButton.addEventListener('click', randamizeWords, false);
+             
+                 var item = function() {
+                    var row = document.createElement('div');
+                    var entry = document.createElement('input');
+                    entry.type='entry';
+                    entry.placeholder = "enter word";
+                    entry.focus(); // This should grab keyboard focus
+             
+                    row.appendChild(entry);
+                 
+                    return row;
+                 };
+                 
+                 // ------ IMPLEMENTATION  -------- //
+             
+                 // Add Row
+                 function addRow() {
+                     var myItem = new item();
+                     formArea.appendChild(myItem);
+                 }
+             
+                 // Randamize
+                 function randamizeWords() {
+                    var words = [];
+             
+                     var row = formArea.firstElementChild;
+                        
+                     while(row) {
+                         if( row.firstElementChild.value != "") {
+                            words.push( row.firstElementChild.value);
+                         }
+             
+                        row = row.nextElementSibling;
+                     }
+             
+                     // Randamly choose one row
+                     var randIndex = Math.floor(Math.random()*( words.length ) );
+             
+                    // Create text element to append to bottom of the form
+                     var response = document.createElement('div');
+                     response.appendChild(document.createTextNode( words[randIndex]));
+                     randPage.appendChild(response);
+                 }
+             
+             
+             })();
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,578 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E59B10861962F4C1009353A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59B10851962F4C1009353A7 /* Foundation.framework */; };
+		E59B10881962F4C1009353A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59B10871962F4C1009353A7 /* CoreGraphics.framework */; };
+		E59B108A1962F4C1009353A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59B10891962F4C1009353A7 /* UIKit.framework */; };
+		E59B108C1962F4C1009353A7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59B108B1962F4C1009353A7 /* CoreData.framework */; };
+		E59B10921962F4C1009353A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E59B10901962F4C1009353A7 /* InfoPlist.strings */; };
+		E59B10941962F4C1009353A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E59B10931962F4C1009353A7 /* main.m */; };
+		E59B10981962F4C1009353A7 /* IDKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E59B10971962F4C1009353A7 /* IDKAppDelegate.m */; };
+		E59B109B1962F4C1009353A7 /* IDK3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E59B10991962F4C1009353A7 /* IDK3.xcdatamodeld */; };
+		E59B109D1962F4C1009353A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E59B109C1962F4C1009353A7 /* Images.xcassets */; };
+		E59B10A41962F4C1009353A7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59B10A31962F4C1009353A7 /* XCTest.framework */; };
+		E59B10A51962F4C1009353A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59B10851962F4C1009353A7 /* Foundation.framework */; };
+		E59B10A61962F4C1009353A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59B10891962F4C1009353A7 /* UIKit.framework */; };
+		E59B10A71962F4C1009353A7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59B108B1962F4C1009353A7 /* CoreData.framework */; };
+		E59B10AF1962F4C1009353A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E59B10AD1962F4C1009353A7 /* InfoPlist.strings */; };
+		E59B10B11962F4C1009353A7 /* IDK3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E59B10B01962F4C1009353A7 /* IDK3Tests.m */; };
+		E59B10BB1962F4E2009353A7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59B10BA1962F4E2009353A7 /* MapKit.framework */; };
+		E59B10BD1962F501009353A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59B10BC1962F501009353A7 /* Main.storyboard */; };
+		E59B10C11962F7AA009353A7 /* IDKLauncherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E59B10BF1962F7AA009353A7 /* IDKLauncherViewController.m */; };
+		E59B10C21962F7AA009353A7 /* IDKLauncherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59B10C01962F7AA009353A7 /* IDKLauncherViewController.xib */; };
+		E59B10C61962FB79009353A7 /* IDKResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E59B10C41962FB79009353A7 /* IDKResultsTableViewController.m */; };
+		E59B10C71962FB79009353A7 /* IDKResultsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59B10C51962FB79009353A7 /* IDKResultsTableViewController.xib */; };
+		E59B10CB1962FBA7009353A7 /* IDKDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E59B10C91962FBA7009353A7 /* IDKDetailViewController.m */; };
+		E59B10CC1962FBA7009353A7 /* IDKDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59B10CA1962FBA7009353A7 /* IDKDetailViewController.xib */; };
+		E59B10CF1962FC24009353A7 /* IDKDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = E59B10CE1962FC24009353A7 /* IDKDetail.m */; };
+		E59B10D9196372AF009353A7 /* IDKTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E59B10D7196372AF009353A7 /* IDKTableViewCell.m */; };
+		E59B10DA196372AF009353A7 /* IDKTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59B10D8196372AF009353A7 /* IDKTableViewCell.xib */; };
+		E59B10DD1963AAA0009353A7 /* IDKAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E59B10DC1963AAA0009353A7 /* IDKAnnotation.m */; };
+		E59B10E01964A051009353A7 /* getEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = E59B10DF1964A051009353A7 /* getEvents.m */; };
+		E59B10E2196748C8009353A7 /* idk.html in Resources */ = {isa = PBXBuildFile; fileRef = E59B10E1196748C7009353A7 /* idk.html */; };
+		E59B10E619687416009353A7 /* idk2.html in Resources */ = {isa = PBXBuildFile; fileRef = E59B10E519687416009353A7 /* idk2.html */; };
+		E5D7A37B19731B8F00DC6868 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D7A37A19731B8F00DC6868 /* CoreLocation.framework */; };
+		E5D7A37E19731C2000DC6868 /* IDKDummyEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D7A37D19731C2000DC6868 /* IDKDummyEvents.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E59B10A81962F4C1009353A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E59B107A1962F4C1009353A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E59B10811962F4C1009353A7;
+			remoteInfo = IDK3;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E5029B72196A07DC00BD74A7 /* IDK_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IDK_icon.png; sourceTree = "<group>"; };
+		E5029B73196A084200BD74A7 /* IDK_icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IDK_icon80.png; sourceTree = "<group>"; };
+		E59B10821962F4C1009353A7 /* IDK3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDK3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E59B10851962F4C1009353A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E59B10871962F4C1009353A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E59B10891962F4C1009353A7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E59B108B1962F4C1009353A7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E59B108F1962F4C1009353A7 /* IDK3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IDK3-Info.plist"; sourceTree = "<group>"; };
+		E59B10911962F4C1009353A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E59B10931962F4C1009353A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E59B10951962F4C1009353A7 /* IDK3-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IDK3-Prefix.pch"; sourceTree = "<group>"; };
+		E59B10961962F4C1009353A7 /* IDKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDKAppDelegate.h; sourceTree = "<group>"; };
+		E59B10971962F4C1009353A7 /* IDKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDKAppDelegate.m; sourceTree = "<group>"; };
+		E59B109A1962F4C1009353A7 /* IDK3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IDK3.xcdatamodel; sourceTree = "<group>"; };
+		E59B109C1962F4C1009353A7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E59B10A21962F4C1009353A7 /* IDK3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IDK3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E59B10A31962F4C1009353A7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E59B10AC1962F4C1009353A7 /* IDK3Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IDK3Tests-Info.plist"; sourceTree = "<group>"; };
+		E59B10AE1962F4C1009353A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E59B10B01962F4C1009353A7 /* IDK3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IDK3Tests.m; sourceTree = "<group>"; };
+		E59B10BA1962F4E2009353A7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E59B10BC1962F501009353A7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
+		E59B10BE1962F7AA009353A7 /* IDKLauncherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDKLauncherViewController.h; sourceTree = "<group>"; };
+		E59B10BF1962F7AA009353A7 /* IDKLauncherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDKLauncherViewController.m; sourceTree = "<group>"; };
+		E59B10C01962F7AA009353A7 /* IDKLauncherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDKLauncherViewController.xib; sourceTree = "<group>"; };
+		E59B10C31962FB79009353A7 /* IDKResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDKResultsTableViewController.h; sourceTree = "<group>"; };
+		E59B10C41962FB79009353A7 /* IDKResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDKResultsTableViewController.m; sourceTree = "<group>"; };
+		E59B10C51962FB79009353A7 /* IDKResultsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDKResultsTableViewController.xib; sourceTree = "<group>"; };
+		E59B10C81962FBA7009353A7 /* IDKDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDKDetailViewController.h; sourceTree = "<group>"; };
+		E59B10C91962FBA7009353A7 /* IDKDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDKDetailViewController.m; sourceTree = "<group>"; };
+		E59B10CA1962FBA7009353A7 /* IDKDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDKDetailViewController.xib; sourceTree = "<group>"; };
+		E59B10CD1962FC24009353A7 /* IDKDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDKDetail.h; sourceTree = "<group>"; };
+		E59B10CE1962FC24009353A7 /* IDKDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDKDetail.m; sourceTree = "<group>"; };
+		E59B10D6196372AF009353A7 /* IDKTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDKTableViewCell.h; path = ../IDKTableViewCell.h; sourceTree = "<group>"; };
+		E59B10D7196372AF009353A7 /* IDKTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDKTableViewCell.m; path = ../IDKTableViewCell.m; sourceTree = "<group>"; };
+		E59B10D8196372AF009353A7 /* IDKTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IDKTableViewCell.xib; path = ../IDKTableViewCell.xib; sourceTree = "<group>"; };
+		E59B10DB1963AAA0009353A7 /* IDKAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDKAnnotation.h; sourceTree = "<group>"; };
+		E59B10DC1963AAA0009353A7 /* IDKAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDKAnnotation.m; sourceTree = "<group>"; };
+		E59B10DE1964A051009353A7 /* getEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getEvents.h; sourceTree = "<group>"; };
+		E59B10DF1964A051009353A7 /* getEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getEvents.m; sourceTree = "<group>"; };
+		E59B10E1196748C7009353A7 /* idk.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = idk.html; sourceTree = "<group>"; };
+		E59B10E519687416009353A7 /* idk2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = idk2.html; sourceTree = "<group>"; };
+		E5D7A37A19731B8F00DC6868 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E5D7A37C19731C2000DC6868 /* IDKDummyEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDKDummyEvents.h; sourceTree = "<group>"; };
+		E5D7A37D19731C2000DC6868 /* IDKDummyEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDKDummyEvents.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E59B107F1962F4C1009353A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5D7A37B19731B8F00DC6868 /* CoreLocation.framework in Frameworks */,
+				E59B10881962F4C1009353A7 /* CoreGraphics.framework in Frameworks */,
+				E59B108C1962F4C1009353A7 /* CoreData.framework in Frameworks */,
+				E59B10BB1962F4E2009353A7 /* MapKit.framework in Frameworks */,
+				E59B108A1962F4C1009353A7 /* UIKit.framework in Frameworks */,
+				E59B10861962F4C1009353A7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E59B109F1962F4C1009353A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E59B10A41962F4C1009353A7 /* XCTest.framework in Frameworks */,
+				E59B10A71962F4C1009353A7 /* CoreData.framework in Frameworks */,
+				E59B10A61962F4C1009353A7 /* UIKit.framework in Frameworks */,
+				E59B10A51962F4C1009353A7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E59B10791962F4C1009353A7 = {
+			isa = PBXGroup;
+			children = (
+				E5029B73196A084200BD74A7 /* IDK_icon80.png */,
+				E5029B72196A07DC00BD74A7 /* IDK_icon.png */,
+				E59B108D1962F4C1009353A7 /* IDK3 */,
+				E59B10AA1962F4C1009353A7 /* IDK3Tests */,
+				E59B10841962F4C1009353A7 /* Frameworks */,
+				E59B10831962F4C1009353A7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E59B10831962F4C1009353A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E59B10821962F4C1009353A7 /* IDK3.app */,
+				E59B10A21962F4C1009353A7 /* IDK3Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E59B10841962F4C1009353A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5D7A37A19731B8F00DC6868 /* CoreLocation.framework */,
+				E59B10BA1962F4E2009353A7 /* MapKit.framework */,
+				E59B10851962F4C1009353A7 /* Foundation.framework */,
+				E59B10871962F4C1009353A7 /* CoreGraphics.framework */,
+				E59B10891962F4C1009353A7 /* UIKit.framework */,
+				E59B108B1962F4C1009353A7 /* CoreData.framework */,
+				E59B10A31962F4C1009353A7 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E59B108D1962F4C1009353A7 /* IDK3 */ = {
+			isa = PBXGroup;
+			children = (
+				E59B10E1196748C7009353A7 /* idk.html */,
+				E59B10E519687416009353A7 /* idk2.html */,
+				E5D7A37C19731C2000DC6868 /* IDKDummyEvents.h */,
+				E5D7A37D19731C2000DC6868 /* IDKDummyEvents.m */,
+				E59B10BC1962F501009353A7 /* Main.storyboard */,
+				E59B10CD1962FC24009353A7 /* IDKDetail.h */,
+				E59B10CE1962FC24009353A7 /* IDKDetail.m */,
+				E59B10DE1964A051009353A7 /* getEvents.h */,
+				E59B10DF1964A051009353A7 /* getEvents.m */,
+				E59B10D6196372AF009353A7 /* IDKTableViewCell.h */,
+				E59B10D7196372AF009353A7 /* IDKTableViewCell.m */,
+				E59B10D8196372AF009353A7 /* IDKTableViewCell.xib */,
+				E59B10DB1963AAA0009353A7 /* IDKAnnotation.h */,
+				E59B10DC1963AAA0009353A7 /* IDKAnnotation.m */,
+				E59B10BE1962F7AA009353A7 /* IDKLauncherViewController.h */,
+				E59B10BF1962F7AA009353A7 /* IDKLauncherViewController.m */,
+				E59B10C01962F7AA009353A7 /* IDKLauncherViewController.xib */,
+				E59B10C31962FB79009353A7 /* IDKResultsTableViewController.h */,
+				E59B10C41962FB79009353A7 /* IDKResultsTableViewController.m */,
+				E59B10C51962FB79009353A7 /* IDKResultsTableViewController.xib */,
+				E59B10C81962FBA7009353A7 /* IDKDetailViewController.h */,
+				E59B10C91962FBA7009353A7 /* IDKDetailViewController.m */,
+				E59B10CA1962FBA7009353A7 /* IDKDetailViewController.xib */,
+				E59B10961962F4C1009353A7 /* IDKAppDelegate.h */,
+				E59B10971962F4C1009353A7 /* IDKAppDelegate.m */,
+				E59B109C1962F4C1009353A7 /* Images.xcassets */,
+				E59B10991962F4C1009353A7 /* IDK3.xcdatamodeld */,
+				E59B108E1962F4C1009353A7 /* Supporting Files */,
+			);
+			path = IDK3;
+			sourceTree = "<group>";
+		};
+		E59B108E1962F4C1009353A7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E59B108F1962F4C1009353A7 /* IDK3-Info.plist */,
+				E59B10901962F4C1009353A7 /* InfoPlist.strings */,
+				E59B10931962F4C1009353A7 /* main.m */,
+				E59B10951962F4C1009353A7 /* IDK3-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E59B10AA1962F4C1009353A7 /* IDK3Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E59B10B01962F4C1009353A7 /* IDK3Tests.m */,
+				E59B10AB1962F4C1009353A7 /* Supporting Files */,
+			);
+			path = IDK3Tests;
+			sourceTree = "<group>";
+		};
+		E59B10AB1962F4C1009353A7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E59B10AC1962F4C1009353A7 /* IDK3Tests-Info.plist */,
+				E59B10AD1962F4C1009353A7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E59B10811962F4C1009353A7 /* IDK3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E59B10B41962F4C1009353A7 /* Build configuration list for PBXNativeTarget "IDK3" */;
+			buildPhases = (
+				E59B107E1962F4C1009353A7 /* Sources */,
+				E59B107F1962F4C1009353A7 /* Frameworks */,
+				E59B10801962F4C1009353A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IDK3;
+			productName = IDK3;
+			productReference = E59B10821962F4C1009353A7 /* IDK3.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E59B10A11962F4C1009353A7 /* IDK3Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E59B10B71962F4C1009353A7 /* Build configuration list for PBXNativeTarget "IDK3Tests" */;
+			buildPhases = (
+				E59B109E1962F4C1009353A7 /* Sources */,
+				E59B109F1962F4C1009353A7 /* Frameworks */,
+				E59B10A01962F4C1009353A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E59B10A91962F4C1009353A7 /* PBXTargetDependency */,
+			);
+			name = IDK3Tests;
+			productName = IDK3Tests;
+			productReference = E59B10A21962F4C1009353A7 /* IDK3Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E59B107A1962F4C1009353A7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = IDK;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "SATOKO HIGHSTEIN";
+				TargetAttributes = {
+					E59B10811962F4C1009353A7 = {
+						DevelopmentTeam = J39U79GXCP;
+						SystemCapabilities = {
+							com.apple.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					E59B10A11962F4C1009353A7 = {
+						TestTargetID = E59B10811962F4C1009353A7;
+					};
+				};
+			};
+			buildConfigurationList = E59B107D1962F4C1009353A7 /* Build configuration list for PBXProject "IDK3" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E59B10791962F4C1009353A7;
+			productRefGroup = E59B10831962F4C1009353A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E59B10811962F4C1009353A7 /* IDK3 */,
+				E59B10A11962F4C1009353A7 /* IDK3Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E59B10801962F4C1009353A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E59B10CC1962FBA7009353A7 /* IDKDetailViewController.xib in Resources */,
+				E59B10BD1962F501009353A7 /* Main.storyboard in Resources */,
+				E59B10DA196372AF009353A7 /* IDKTableViewCell.xib in Resources */,
+				E59B10E2196748C8009353A7 /* idk.html in Resources */,
+				E59B10921962F4C1009353A7 /* InfoPlist.strings in Resources */,
+				E59B109D1962F4C1009353A7 /* Images.xcassets in Resources */,
+				E59B10C21962F7AA009353A7 /* IDKLauncherViewController.xib in Resources */,
+				E59B10C71962FB79009353A7 /* IDKResultsTableViewController.xib in Resources */,
+				E59B10E619687416009353A7 /* idk2.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E59B10A01962F4C1009353A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E59B10AF1962F4C1009353A7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E59B107E1962F4C1009353A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E59B10941962F4C1009353A7 /* main.m in Sources */,
+				E59B10981962F4C1009353A7 /* IDKAppDelegate.m in Sources */,
+				E59B10E01964A051009353A7 /* getEvents.m in Sources */,
+				E59B109B1962F4C1009353A7 /* IDK3.xcdatamodeld in Sources */,
+				E59B10C61962FB79009353A7 /* IDKResultsTableViewController.m in Sources */,
+				E59B10CB1962FBA7009353A7 /* IDKDetailViewController.m in Sources */,
+				E59B10D9196372AF009353A7 /* IDKTableViewCell.m in Sources */,
+				E59B10CF1962FC24009353A7 /* IDKDetail.m in Sources */,
+				E59B10C11962F7AA009353A7 /* IDKLauncherViewController.m in Sources */,
+				E59B10DD1963AAA0009353A7 /* IDKAnnotation.m in Sources */,
+				E5D7A37E19731C2000DC6868 /* IDKDummyEvents.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E59B109E1962F4C1009353A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E59B10B11962F4C1009353A7 /* IDK3Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E59B10A91962F4C1009353A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E59B10811962F4C1009353A7 /* IDK3 */;
+			targetProxy = E59B10A81962F4C1009353A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E59B10901962F4C1009353A7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E59B10911962F4C1009353A7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E59B10AD1962F4C1009353A7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E59B10AE1962F4C1009353A7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E59B10B21962F4C1009353A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E59B10B31962F4C1009353A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E59B10B51962F4C1009353A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IDK3/IDK3-Prefix.pch";
+				INFOPLIST_FILE = "IDK3/IDK3-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E59B10B61962F4C1009353A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IDK3/IDK3-Prefix.pch";
+				INFOPLIST_FILE = "IDK3/IDK3-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		E59B10B81962F4C1009353A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IDK3.app/IDK3";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IDK3/IDK3-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "IDK3Tests/IDK3Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		E59B10B91962F4C1009353A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IDK3.app/IDK3";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IDK3/IDK3-Prefix.pch";
+				INFOPLIST_FILE = "IDK3Tests/IDK3Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E59B107D1962F4C1009353A7 /* Build configuration list for PBXProject "IDK3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E59B10B21962F4C1009353A7 /* Debug */,
+				E59B10B31962F4C1009353A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E59B10B41962F4C1009353A7 /* Build configuration list for PBXNativeTarget "IDK3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E59B10B51962F4C1009353A7 /* Debug */,
+				E59B10B61962F4C1009353A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E59B10B71962F4C1009353A7 /* Build configuration list for PBXNativeTarget "IDK3Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E59B10B81962F4C1009353A7 /* Debug */,
+				E59B10B91962F4C1009353A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E59B10991962F4C1009353A7 /* IDK3.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E59B109A1962F4C1009353A7 /* IDK3.xcdatamodel */,
+			);
+			currentVersion = E59B109A1962F4C1009353A7 /* IDK3.xcdatamodel */;
+			path = IDK3.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E59B107A1962F4C1009353A7 /* Project object */;
+}
