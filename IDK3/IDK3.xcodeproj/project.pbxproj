@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9511D7021975C116005A7631 /* IDKDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9511D7011975C116005A7631 /* IDKDetailsViewController.m */; };
+		DDAD0D371975AB3C001D2D76 /* IDKCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAD0D361975AB3C001D2D76 /* IDKCommon.m */; };
 		E59B10861962F4C1009353A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59B10851962F4C1009353A7 /* Foundation.framework */; };
 		E59B10881962F4C1009353A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59B10871962F4C1009353A7 /* CoreGraphics.framework */; };
 		E59B108A1962F4C1009353A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59B10891962F4C1009353A7 /* UIKit.framework */; };
@@ -52,6 +54,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9511D7001975C116005A7631 /* IDKDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDKDetailsViewController.h; path = ../IDKDetailsViewController.h; sourceTree = "<group>"; };
+		9511D7011975C116005A7631 /* IDKDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDKDetailsViewController.m; path = ../IDKDetailsViewController.m; sourceTree = "<group>"; };
+		DDAD0D351975AB3C001D2D76 /* IDKCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDKCommon.h; sourceTree = "<group>"; };
+		DDAD0D361975AB3C001D2D76 /* IDKCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDKCommon.m; sourceTree = "<group>"; };
 		E5029B72196A07DC00BD74A7 /* IDK_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IDK_icon.png; sourceTree = "<group>"; };
 		E5029B73196A084200BD74A7 /* IDK_icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IDK_icon80.png; sourceTree = "<group>"; };
 		E59B10821962F4C1009353A7 /* IDK3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDK3.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +136,8 @@
 		E59B10791962F4C1009353A7 = {
 			isa = PBXGroup;
 			children = (
+				DDAD0D351975AB3C001D2D76 /* IDKCommon.h */,
+				DDAD0D361975AB3C001D2D76 /* IDKCommon.m */,
 				E5029B73196A084200BD74A7 /* IDK_icon80.png */,
 				E5029B72196A07DC00BD74A7 /* IDK_icon.png */,
 				E59B108D1962F4C1009353A7 /* IDK3 */,
@@ -188,6 +196,8 @@
 				E59B10C81962FBA7009353A7 /* IDKDetailViewController.h */,
 				E59B10C91962FBA7009353A7 /* IDKDetailViewController.m */,
 				E59B10CA1962FBA7009353A7 /* IDKDetailViewController.xib */,
+				9511D7001975C116005A7631 /* IDKDetailsViewController.h */,
+				9511D7011975C116005A7631 /* IDKDetailsViewController.m */,
 				E59B10961962F4C1009353A7 /* IDKAppDelegate.h */,
 				E59B10971962F4C1009353A7 /* IDKAppDelegate.m */,
 				E59B109C1962F4C1009353A7 /* Images.xcassets */,
@@ -340,6 +350,7 @@
 				E59B10941962F4C1009353A7 /* main.m in Sources */,
 				E59B10981962F4C1009353A7 /* IDKAppDelegate.m in Sources */,
 				E59B10E01964A051009353A7 /* getEvents.m in Sources */,
+				9511D7021975C116005A7631 /* IDKDetailsViewController.m in Sources */,
 				E59B109B1962F4C1009353A7 /* IDK3.xcdatamodeld in Sources */,
 				E59B10C61962FB79009353A7 /* IDKResultsTableViewController.m in Sources */,
 				E59B10CB1962FBA7009353A7 /* IDKDetailViewController.m in Sources */,
@@ -348,6 +359,7 @@
 				E59B10C11962F7AA009353A7 /* IDKLauncherViewController.m in Sources */,
 				E59B10DD1963AAA0009353A7 /* IDKAnnotation.m in Sources */,
 				E5D7A37E19731C2000DC6868 /* IDKDummyEvents.m in Sources */,
+				DDAD0D371975AB3C001D2D76 /* IDKCommon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

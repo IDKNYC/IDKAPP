@@ -213,16 +213,16 @@
     NSMutableArray *_locations = [[NSMutableArray alloc] init];
     
     NSArray *resArray = [dict valueForKey:@"results"];
-    NSLog(@"results has this many: %d", resArray.count);
+    NSLog(@"results has this many @%d", resArray.count);
     
     // Store each results into array groups
     NSMutableArray *groups = [[NSMutableArray alloc] init];
     
     for (NSDictionary *groupDic in resArray) {
         IDKDetail *detail = [[IDKDetail alloc] init];
-        NSLog(@"-----");
+        
         for (NSString *key in groupDic) {
-            NSLog(@"key=%@", key);
+//            NSLog(@"key=%@", key);
             if([ key isEqualToString:@"name"]) {
                 [ detail setValue:[groupDic valueForKey:key] forKeyPath:@"Name"];
                 [ detail setValue:[groupDic valueForKey:key] forKeyPath:@"venueName"];
@@ -231,9 +231,9 @@
                 [ detail setValue:[groupDic valueForKey:key] forKeyPath:@"address"];
             }
             if([ key isEqualToString:@"icon"]) {
-//                NSLog(@"Icon= %@", [groupDic valueForKey:key]);
+                NSLog(@"Icon= %@", [groupDic valueForKey:key]);
                 
-//                [ detail setValue:[groupDic valueForKey:key] forKeyPath:@"iconPath"];
+                [ detail setValue:[groupDic valueForKey:key] forKeyPath:@"iconPath"];
             }
             if([ key isEqualToString:@"types"]) {
                 NSArray *gTypes = [groupDic valueForKeyPath:key];
@@ -242,11 +242,6 @@
 //                NSLog(@"myTypes: %@", myTypes);
                 
                 [detail setValue:myTypes forKeyPath:@"type"];
-            }
-            if( [key isEqualToString:@"photo"] || [key isEqualToString:@"photos"] ){
-                NSLog(@"------Photo ref:%@", [[groupDic objectForKey:key] objectForKey:@"photo_reference"] );
-                
-                [detail setValue:[[groupDic objectForKey:key] objectForKey:@"photo_reference"] forKeyPath:@"iconPath"];
             }
             if( [key isEqualToString:@"geometry"] ) {
 //                NSLog(@"geometry!!!! ");

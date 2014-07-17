@@ -2,8 +2,8 @@
 //  IDKAppDelegate.m
 //  IDK3
 //
-//  Created by SATOKO HIGHSTEIN on 7/1/14.
-//  Copyright (c) 2014 SATOKO HIGHSTEIN. All rights reserved.
+//  Created by Mahdi Makki on 7/15/14.
+//  Copyright (c) 2014 IDKNY. All rights reserved.
 //
 
 #import "IDKAppDelegate.h"

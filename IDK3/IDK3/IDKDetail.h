@@ -19,8 +19,6 @@
 @property NSString *info;
 @property NSString *iconPath;
 @property NSString *phone;
-@property BOOL *isEvent;
-
 
 
 @property double lat;

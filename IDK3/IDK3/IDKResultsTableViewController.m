@@ -3,8 +3,8 @@
 //  IDKResultsTableViewController.m
 //  IDK3
 //
-//  Created by SATOKO HIGHSTEIN on 7/1/14.
-//  Copyright (c) 2014 SATOKO HIGHSTEIN. All rights reserved.
+//  Created by Mahdi Makki on 7/15/14.
+//  Copyright (c) 2014 IDKNY. All rights reserved.
 //
 
 #import "IDKResultsTableViewController.h"
@@ -24,17 +24,15 @@
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"gotoDetail"]) {
-        IDKDetailViewController *detailView = [segue destinationViewController];
+    if([segue.identifier isEqualToString:@"goToDetail"]) {
+        IDKDetailsViewController *detailView = [segue destinationViewController];
         detailView.selectedVenue = [[IDKDetail alloc] init];
         
         // get selectev venue to pass
         IDKDetail *selectedVenue = [[IDKDetail alloc] init];
         selectedVenue = [self->searchResults objectAtIndex:self.tableView.indexPathForSelectedRow.row ];
-        selectedVenue.isEvent = self.isEvent;
         
         detailView.selectedVenue = selectedVenue;
-        
     }
 }
 
@@ -111,6 +109,9 @@
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [self->searchResults count];
+    //Set background color of table view (translucent)
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.0 green:0.2 blue:0.5 alpha:0.7];
+    
 //    return 3;
 }
 
@@ -118,17 +119,31 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
      IDKTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell" forIndexPath:indexPath];
-    
+    cell.selectedBackgroundView = [[UIView alloc] init];
     // Configure the cell...
     IDKDetail *venue =[self->searchResults objectAtIndex:indexPath.row];
 //    cell.textLabel.text = venue.venueName;
     cell.cellName.text = venue.Name;
     cell.cellAddress.text = venue.address;
     cell.cellType.text = venue.type;
+    cell.selectedBackgroundView.backgroundColor = [UIColor colorWithRed:137.0/255.0 green:207.0/255.0 blue:240.0/255.0 alpha:1.0];
+    if (indexPath.row%2 == 0) {
+        UIColor *altCellColor = [UIColor colorWithWhite:0.7 alpha:0.1];
+        cell.backgroundColor = altCellColor;
+        
+    }
+    
+    
     
     return cell;
 }
 
+- (NSIndexPath*) tableView:(UITableView *)tableView willDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelected:NO animated:YES];
+    return indexPath;
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -177,10 +192,11 @@
     // Navigation logic may go here, for example:
     // Create the next view controller.
 //    IDKDetailViewController *detailViewController = [[IDKDetailViewController alloc] initWithNibName:@"IDKDetailViewController" bundle:nil];
-
-    [self performSegueWithIdentifier:@"gotoDetail" sender:self];
+    // [self performSegueWithIdentifier:@"goToDetail" sender:self];
     
     NSLog(@"I'm here");
+    
+    
 //    detailViewController.selectedVenue = [[IDKDetail alloc] init];
 //    
 //    // Pass the selected object to the new view controller.
