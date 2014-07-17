@@ -286,7 +286,7 @@ Tell me if you want to do something or eat!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MeG-Um-l81" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1393" y="10"/>
+            <point key="canvasLocation" x="1431" y="2"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Z4d-zK-8Af">
