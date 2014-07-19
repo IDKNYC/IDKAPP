@@ -22,8 +22,8 @@
     if ([segue.identifier isEqualToString:@"gotoSearchResults"]) {
         IDKResultsTableViewController *destViewController = segue.destinationViewController;
         destViewController.whatType = _category;
-        destViewController.maxPx = [NSMutableString stringWithString:@"2"];
-        destViewController.maxRadius = [NSMutableString stringWithString:@"1"];
+        destViewController.maxPx = @2.00; // [NSMutableString stringWithString:@"2"];
+        destViewController.maxRadius = @1.00; // [NSMutableString stringWithString:@"1"];
         
         if([ _category isEqualToString:@"Events"]) {
             destViewController.isEvent = YES;
@@ -64,6 +64,8 @@
 - (void) initPicker {
     _radiusArray = @[@"0.5", @"1", @"2", @"5", @"10"];
     _priceArray = @[@"1", @"2", @"3", @"4"];
+    
+    _picker = [[UIPickerView alloc] init];
 }
 
 #pragma mark -
@@ -100,6 +102,11 @@
     [self.view endEditing:YES];
 }
 
+- (IBAction)textFieldEditBegin:(id)sender {
+    [sender resignFirstResponder];
+    
+}
+
 // --------------- //
 
 - (void)viewDidLoad
@@ -107,6 +114,8 @@
     [super viewDidLoad];
     [self initSegmentedControl];
     [self initPicker];
+    self.maxRadius.inputView = self.picker;
+    
     // Do any additional setup after loading the view from its nib.
     
 }

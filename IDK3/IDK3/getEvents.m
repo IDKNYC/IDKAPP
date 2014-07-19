@@ -48,8 +48,8 @@
     CLLocation *currentLocation = newLocation;
     
     if (currentLocation != nil) {
-        _criteriaLng = [NSMutableString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
-        _criteriaLat = [NSMutableString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+        _criteriaLng = [ NSNumber numberWithDouble: currentLocation.coordinate.longitude ]; // [NSMutableString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+        _criteriaLat = [ NSNumber numberWithDouble: currentLocation.coordinate.latitude ]; //[NSMutableString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
     }
 }
 
@@ -62,16 +62,19 @@
     // Create url path with parameters
     NSString *url = [[NSString alloc] initWithFormat: @"http://idontknow.info/eventRequest.php"];
     //------
-    NSString *post = [NSString stringWithFormat:@"price=%@ & GPSlad=%@ & GPSlong=%@ & radius=%@", _criteriaPrice, _criteriaLat, _criteriaLng, _criteriaRadius];
+    NSString *post = [NSString stringWithFormat:@"price=%d & GPSlad=%@ & GPSlong=%@ & radius=%d", _criteriaPrice, _criteriaLat, _criteriaLng, _criteriaRadius];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init] ;
+//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init] ;
+    NSMutableURLRequest *request = [ NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     [request setURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-length"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+//    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:postData];
+    
+    NSLog(@"Postdata: %@", postData );
     
     NSHTTPURLResponse *urlResponse = nil;
     NSError *error = [[NSError alloc]init];
@@ -82,8 +85,8 @@
     if([urlResponse statusCode] >=200 && [urlResponse statusCode] < 300) {
         NSLog(@"Response: %@", result);
     }
-
-    //-------
+    
+        /*/-------
     
     // Download the json file
     NSURL *jsonFileUrl = [NSURL URLWithString:url];
@@ -95,24 +98,26 @@
     [NSURLConnection connectionWithRequest:urlRequest delegate:self];
     
 //    NSURLConnection *connection= [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+    */
     
 }
 
 - (void)downloadGooglePlaces {
     [self initLocatonManager];
     
-    if( _criteriaLat == nil) {
-        _criteriaLat = [NSMutableString stringWithFormat:@"40.768608"];
-        _criteriaLng = [NSMutableString stringWithFormat: @"-73.965304"];
+    if( self.criteriaLat == NULL ) {
+//    if( _criteriaLat == nil) {
+        _criteriaLat = [NSNumber numberWithFloat: 40.768608]; // [NSMutableString stringWithFormat:@"40.768608"];
+        _criteriaLng = [NSNumber numberWithFloat: -73.96530]; // [NSMutableString stringWithFormat: @"-73.965304"];
     }
 //    [locationManager stopUpdatingLocation];
     
-    NSString *userLat = _criteriaLat; // @"40.768608";
-    NSString *userLng = _criteriaLng; // @"-73.965304";
-    NSString *userPrice = _criteriaPrice; // @"3";
+//    NSString *userLat = _criteriaLat; // @"40.768608";
+//    NSString *userLng = _criteriaLng; // @"-73.965304";
+//    NSString *userPrice = _criteriaPrice; // @"3";
 
     NSString *url = [[NSString alloc] initWithFormat:
-                     @"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%@,%@&radius=500&types=restaurant&maxpice=%@&key=AIzaSyC2TYszFCEbi09cLFheG9N8tqL30FtKg2g", userLat, userLng, userPrice ];
+                     @"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%@,%@&radius=500&types=restaurant&maxpice=%@&key=AIzaSyC2TYszFCEbi09cLFheG9N8tqL30FtKg2g", _criteriaLat, _criteriaLng, _criteriaPrice ];
     NSLog(@"url:%@", url);
     
     //@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.768608,-73.965304&radius=500&types=restaurant&maxpice=4&key=AIzaSyC2TYszFCEbi09cLFheG9N8tqL30FtKg2g"
