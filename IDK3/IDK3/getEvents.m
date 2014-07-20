@@ -48,8 +48,8 @@
     CLLocation *currentLocation = newLocation;
     
     if (currentLocation != nil) {
-        _criteriaLng = [NSMutableString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
-        _criteriaLat = [NSMutableString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+        _criteriaLng = [ NSNumber numberWithFloat: currentLocation.coordinate.longitude];
+        _criteriaLat = [ NSNumber numberWithFloat: currentLocation.coordinate.latitude];
     }
 }
 
@@ -64,7 +64,7 @@
     //------
     NSString *post = [NSString stringWithFormat:@"price=%@ & GPSlad=%@ & GPSlong=%@ & radius=%@", _criteriaPrice, _criteriaLat, _criteriaLng, _criteriaRadius];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init] ;
     [request setURL:[NSURL URLWithString:url]];
@@ -78,11 +78,10 @@
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error: &error ];
     NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
     
-    NSLog(@"Reponse code:%d", [urlResponse statusCode]);
+    NSLog(@"Reponse code:%ld", (long)[urlResponse statusCode]);
     if([urlResponse statusCode] >=200 && [urlResponse statusCode] < 300) {
         NSLog(@"Response: %@", result);
         
-        if(
     }
 
     /*
@@ -106,13 +105,13 @@
     [self initLocatonManager];
     
     if( _criteriaLat == nil) {
-        _criteriaLat = [NSMutableString stringWithFormat:@"40.768608"];
-        _criteriaLng = [NSMutableString stringWithFormat: @"-73.965304"];
+        _criteriaLat = [ NSNumber numberWithFloat: 40.768608 ];
+        _criteriaLng = [ NSNumber numberWithFloat: -73.965304];
     }
 //    [locationManager stopUpdatingLocation];
     
-    NSString *userLat = _criteriaLat; // @"40.768608";
-    NSString *userLng = _criteriaLng; // @"-73.965304";
+    NSString *userLat = [ NSString stringWithFormat:@"%@f.8", _criteriaLat ]; // @"40.768608";
+    NSString *userLng = [ NSString stringWithFormat:@"%@f.8", _criteriaLng ]; // @"-73.965304";
     NSString *userPrice = _criteriaPrice; // @"3";
 
     NSString *url = [[NSString alloc] initWithFormat:
@@ -146,7 +145,7 @@
     NSMutableArray *_locations = [[NSMutableArray alloc] init];
     
     NSArray *resArray = [dict valueForKey:@"results"];
-    NSLog(@"results has this many @%d", resArray.count);
+    NSLog(@"results has this many @%lu", (unsigned long)resArray.count);
     
     // Store each results into array groups
     NSMutableArray *groups = [[NSMutableArray alloc] init];
@@ -174,8 +173,6 @@
                 [ detail setValue:[groupDic valueForKey:key] forKeyPath:@"iconPath"];
             }
             if([ key isEqualToString:@"types"]) {
-                NSArray *gTypes = [groupDic valueForKeyPath:key];
-                
                 NSString *myTypes = [[groupDic valueForKey:key] componentsJoinedByString:@", "];
 //                NSLog(@"myTypes: %@", myTypes);
                 
@@ -204,7 +201,7 @@
     // get random 3 from group's array
     
     int counter = 0;
-    int numInGroups = [groups count];
+    int numInGroups = (unsigned int) [groups count];
     int upperBoundValid = numInGroups-1;
     for( counter = 0; counter < 3; counter++ ) {
         int x = arc4random() % upperBoundValid;
