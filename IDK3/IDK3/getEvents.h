@@ -18,11 +18,11 @@
 @interface HomeModel : NSObject <NSURLConnectionDataDelegate>
 
 @property (nonatomic, weak) id<HomeModelProtocol> delegate;
-@property NSNumber *criteriaPrice;  // 1, 2, 3 or 4
-@property NSNumber *criteriaRadius; // only 0.5, 1, 2, or 5
-@property NSNumber *criteriaLat;
-@property NSNumber *criteriaLng;
-@property BOOL *isEvent;
+@property NSMutableString *criteriaPrice;  // 1, 2, 3 or 4
+@property NSMutableString *criteriaRadius; // only 0.5, 1, 2, or 5
+@property NSMutableString *criteriaLat;
+@property NSMutableString *criteriaLng;
+@property BOOL isEvent;
 
 - (void)downloadItems;
 - (void)downloadGooglePlaces;

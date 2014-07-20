@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9511D7021975C116005A7631 /* IDKDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9511D7011975C116005A7631 /* IDKDetailsViewController.m */; };
 		DDAD0D371975AB3C001D2D76 /* IDKCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAD0D361975AB3C001D2D76 /* IDKCommon.m */; };
+		DDAD0D3A19798909001D2D76 /* IDKCoinFlipperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAD0D3919798909001D2D76 /* IDKCoinFlipperViewController.m */; };
 		E59B10861962F4C1009353A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59B10851962F4C1009353A7 /* Foundation.framework */; };
 		E59B10881962F4C1009353A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59B10871962F4C1009353A7 /* CoreGraphics.framework */; };
 		E59B108A1962F4C1009353A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59B10891962F4C1009353A7 /* UIKit.framework */; };
@@ -58,6 +59,8 @@
 		9511D7011975C116005A7631 /* IDKDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDKDetailsViewController.m; path = ../IDKDetailsViewController.m; sourceTree = "<group>"; };
 		DDAD0D351975AB3C001D2D76 /* IDKCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDKCommon.h; sourceTree = "<group>"; };
 		DDAD0D361975AB3C001D2D76 /* IDKCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDKCommon.m; sourceTree = "<group>"; };
+		DDAD0D3819798909001D2D76 /* IDKCoinFlipperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDKCoinFlipperViewController.h; sourceTree = "<group>"; };
+		DDAD0D3919798909001D2D76 /* IDKCoinFlipperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDKCoinFlipperViewController.m; sourceTree = "<group>"; };
 		E5029B72196A07DC00BD74A7 /* IDK_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IDK_icon.png; sourceTree = "<group>"; };
 		E5029B73196A084200BD74A7 /* IDK_icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IDK_icon80.png; sourceTree = "<group>"; };
 		E59B10821962F4C1009353A7 /* IDK3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDK3.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +180,8 @@
 				E59B10E519687416009353A7 /* idk2.html */,
 				E5D7A37C19731C2000DC6868 /* IDKDummyEvents.h */,
 				E5D7A37D19731C2000DC6868 /* IDKDummyEvents.m */,
+				DDAD0D3819798909001D2D76 /* IDKCoinFlipperViewController.h */,
+				DDAD0D3919798909001D2D76 /* IDKCoinFlipperViewController.m */,
 				E59B10BC1962F501009353A7 /* Main.storyboard */,
 				E59B10CD1962FC24009353A7 /* IDKDetail.h */,
 				E59B10CE1962FC24009353A7 /* IDKDetail.m */,
@@ -352,6 +357,7 @@
 				E59B10E01964A051009353A7 /* getEvents.m in Sources */,
 				9511D7021975C116005A7631 /* IDKDetailsViewController.m in Sources */,
 				E59B109B1962F4C1009353A7 /* IDK3.xcdatamodeld in Sources */,
+				DDAD0D3A19798909001D2D76 /* IDKCoinFlipperViewController.m in Sources */,
 				E59B10C61962FB79009353A7 /* IDKResultsTableViewController.m in Sources */,
 				E59B10CB1962FBA7009353A7 /* IDKDetailViewController.m in Sources */,
 				E59B10D9196372AF009353A7 /* IDKTableViewCell.m in Sources */,

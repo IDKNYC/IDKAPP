@@ -21,7 +21,7 @@
 @property NSString *whatType; // events or restaurants
 @property BOOL isEvent; // replaces whatType
 
-@property NSNumber *maxPx;
-@property NSNumber *maxRadius;
+@property NSMutableString *maxPx;
+@property NSMutableString *maxRadius;
 
 @end
