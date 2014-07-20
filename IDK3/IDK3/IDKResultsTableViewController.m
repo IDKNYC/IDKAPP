@@ -45,12 +45,11 @@
     
     // set criteria for search
     
-    dbSvc.criteriaPrice = ( &_maxPx != nil ) ? _maxPx : @1;
-    dbSvc.criteriaRadius = (_maxRadius != nil ) ? _maxRadius :@1; // [NSMutableString stringWithString:@1.00];
+    dbSvc.criteriaPrice = _maxPx? _maxPx : [NSMutableString stringWithString:@"1"];
+    dbSvc.criteriaRadius = _maxRadius? _maxRadius :[NSMutableString stringWithString:@"1"];
     
     if( _isEvent ) {
-        dbSvc.isEvent = YES;
-        
+        dbSvc.isEvent = TRUE;
         [dbSvc downloadItems];
     } else {
         dbSvc.isEvent = FALSE;
