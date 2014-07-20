@@ -62,7 +62,7 @@
     // Create url path with parameters
     NSString *url = [[NSString alloc] initWithFormat: @"http://idontknow.info/eventRequest.php"];
     //------
-    NSString *post = [NSString stringWithFormat:@"price=%@ & GPSlad=%@ & GPSlong=%@ & radius=%@", _criteriaPrice, _criteriaLat, _criteriaLng, _criteriaRadius];
+    NSString *post = [NSString stringWithFormat:@"price=%@ & GPSlad=%f & GPSlong=%f & radius=%@", _criteriaPrice, [_criteriaLat doubleValue], [_criteriaLng doubleValue], _criteriaRadius];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
     
