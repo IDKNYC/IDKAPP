@@ -105,8 +105,8 @@
     [self initLocatonManager];
     
     if( _criteriaLat == nil || _criteriaLat == 0) {
-        _criteriaLat = [ NSNumber numberWithFloat: 40.768608 ];
-        _criteriaLng = [ NSNumber numberWithFloat: -73.965304];
+        _criteriaLat = [ NSNumber numberWithFloat:  40.840969429 ];
+        _criteriaLng = [ NSNumber numberWithFloat: -73.965304239];
     }
 //    [locationManager stopUpdatingLocation];
     
@@ -147,7 +147,7 @@
     NSString *stringData = [[NSString alloc] initWithData: _downloadedData encoding:NSUTF8StringEncoding];
     NSLog(@"\n\n******** Downloaded data: %@", stringData);
     
-    if( [stringData isEqual: @"\"Sorry. There are no events near you. Try modifying your search criteria.\""]) {
+    if( [stringData isEqual: @"\"Sorry. There are no events near you. Try modifying your search criteria.\""] ) {
 
         NSMutableArray *_locations = [[NSMutableArray alloc] init];
         IDKDetail *detail = [[IDKDetail alloc] init];
@@ -155,8 +155,8 @@
         detail.address = @"";
         detail.date = @"";
         detail.time = @"";
-        detail.lat = _criteriaLat; // [ NSNumber numberWithDouble: [jsonElement[@"GPSlad"] doubleValue] ];
-        detail.lng = _criteriaLng; // [ NSNumber numberWithDouble: [jsonElement[@"GPSlong"] doubleValue] ];
+        detail.lat = _criteriaLat;
+        detail.lng = _criteriaLng;
         detail.venueName = @"";
         detail.info = @"";
         detail.iconPath = @"";
