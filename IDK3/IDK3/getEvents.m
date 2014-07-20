@@ -110,8 +110,8 @@
     }
 //    [locationManager stopUpdatingLocation];
     
-    NSString *userLat = [ NSString stringWithFormat:@"%@f.8", _criteriaLat ]; // @"40.768608";
-    NSString *userLng = [ NSString stringWithFormat:@"%@f.8", _criteriaLng ]; // @"-73.965304";
+    NSString *userLat = [ NSString stringWithFormat:@"%@", _criteriaLat ]; // @"40.768608";
+    NSString *userLng = [ NSString stringWithFormat:@"%@", _criteriaLng ]; // @"-73.965304";
     NSString *userPrice = _criteriaPrice; // @"3";
 
     NSString *url = [[NSString alloc] initWithFormat:
@@ -239,12 +239,19 @@
     
     // get random 3 from group's array
     
+    
+    
     int counter = 0;
     int numInGroups = (unsigned int) [groups count];
-    int upperBoundValid = numInGroups-1;
-    for( counter = 0; counter < 3; counter++ ) {
-        int x = arc4random() % upperBoundValid;
-        [_locations addObject: [ groups objectAtIndex:x]];
+    
+    if( numInGroups < 3 ){
+        _locations = groups;
+    } else {
+        int upperBoundValid = numInGroups-1;
+        for( counter = 0; counter < 3 || counter < upperBoundValid; counter++ ) {
+            int x = arc4random() % upperBoundValid;
+            [_locations addObject: [ groups objectAtIndex:x]];
+        }
     }
     
     // Ready to notify delegate that data is ready and pass back items
