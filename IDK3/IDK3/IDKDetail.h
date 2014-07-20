@@ -18,6 +18,7 @@
 @property NSString *Name;
 @property NSString *info;
 @property NSString *iconPath;
+@property NSString *photoPath;
 @property NSString *phone;
 
 

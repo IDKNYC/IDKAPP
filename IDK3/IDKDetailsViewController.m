@@ -108,9 +108,20 @@
         [self.scrollView addSubview:self.date];
         y = self.date.frame.origin.y + self.date.frame.size.height + 10;
     }
-    NSURL *imageURL = [NSURL URLWithString: self.selectedVenue.iconPath ];
+    
+    // -- setting the correct path to get images
+    NSString *pathToPhoto = [[ NSString alloc] init ];
+    if( ![self.selectedVenue.photoPath  isEqual: @""]  ) {
+        pathToPhoto = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/photo?maxheight=180&maxwidth=280&photoreference=%@", self.selectedVenue.photoPath ];
+    }
+    else {
+        pathToPhoto = [ NSString stringWithFormat: @"%@", self.selectedVenue.iconPath ];
+    }
+    
+    NSURL *imageURL = [NSURL URLWithString: pathToPhoto];
     NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
     UIImage *image = [UIImage imageWithData:imageData];
+    
     if (image) {
         self.logo = [[UIImageView alloc] initWithImage:image];
         self.logo.frame = CGRectMake(self.logo.frame.origin.x, y, self.logo.frame.size.width, self.logo.frame.size.height);

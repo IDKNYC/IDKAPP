@@ -121,77 +121,6 @@
     NSMutableURLRequest *googleRequest = [[NSMutableURLRequest alloc] initWithURL:googlePlacesURL];
     [NSURLConnection connectionWithRequest:googleRequest delegate:self];
 
-//    NSURLConnection *myConnection = [NSURLConnection connectionWithRequest:gRequest delegate:self];
-    
-    /*
-    NSData *xmlData = [NSData dataWithContentsOfURL:googlePlacesURL];
-    
-     *xmlDocument = [[GDataXMLDocument alloc]initWithData:xmlData options:0 error:nil];
-    NSArray *arr = [xmlDocument.rootElement elementsForName:@"result"];
-    
-    for(GDataXMLElement *e in arr )
-    {
-        [placesOutputArray addObject:e];
-    }
-    
-    */
-    
-    
-    /*////// --- using DB
-    
-    _criteriaPrice = [[NSMutableString alloc] initWithString:@"2"];
-    _criteriaRadius = [[NSMutableString alloc] initWithString:@"1.0"];
-    _criteriaLat = [[NSMutableString alloc] initWithString:@"40.767911"];
-    _criteriaLng = [[NSMutableString alloc] initWithString: @"-70.33453"];
-    
-    NSString *post = [NSString stringWithFormat:@"price=%@ & GPSlad=%@ & GPSlong=%@ & radius=%@", _criteriaPrice, _criteriaLat, _criteriaLng, _criteriaRadius];
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init] ;
-    [request setURL:[NSURL URLWithString:@"http://idontknow.info/restRequest.php"]];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-length"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:postData];
-    
-    NSHTTPURLResponse *urlResponse = nil;
-    NSError *error = [[NSError alloc]init];
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error: &error ];
-    NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    
-    NSLog(@"Reponse code:%d", [urlResponse statusCode]);
-    if([urlResponse statusCode] >=200 && [urlResponse statusCode] < 300) {
-        NSLog(@"Response: %@", result);
-    }
-    */
-    
-    /*------- from stackoverflow ---------
-    NSString *receipt1 = @"username";
-    
-    NSString *post =[NSString stringWithFormat:@"receipt=%@",receipt1];
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    
-    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-    
-    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-    [request setURL:[NSURL URLWithString:@"http://localhost:8888/validateaction.php"]];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:postData];
-    
-    NSHTTPURLResponse* urlResponse = nil;
-    NSError *error = [[NSError alloc] init];
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
-    NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    NSLog(@"Response Code: %d", [urlResponse statusCode]);
-    
-    if ([urlResponse statusCode] >= 200 && [urlResponse statusCode] < 300)
-    {
-        NSLog(@"Response: %@", result);
-    }
-    */
 }
 
 #pragma mark NSURLConnectionDataProtocol Methods
@@ -229,6 +158,11 @@
             }
             if([ key isEqualToString:@"vicinity"]) {
                 [ detail setValue:[groupDic valueForKey:key] forKeyPath:@"address"];
+            }
+            if([ key isEqualToString:@"photo"] || [key isEqualToString:@"photos"] ) {
+                NSLog(@"photo= %@", [groupDic valueForKey:key]);
+                
+                [ detail setValue: [[[groupDic objectForKey:key] valueForKey:@"photo_reference" ] objectAtIndex:0] forKeyPath:@"photoPath"];
             }
             if([ key isEqualToString:@"icon"]) {
                 NSLog(@"Icon= %@", [groupDic valueForKey:key]);
