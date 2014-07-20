@@ -59,12 +59,20 @@
 {
     [self initLocatonManager];
     
+    if (_criteriaLat == nil ) {
+        _criteriaLat =  @40.840969429;
+        _criteriaLng = @-73.965304239;
+    }
+//    _criteriaRadius = @5;
+    
     // Create url path with parameters
     NSString *url = [[NSString alloc] initWithFormat: @"http://idontknow.info/eventRequest.php"];
     //------
-    NSString *post = [NSString stringWithFormat:@"price=%@ & GPSlad=%f & GPSlong=%f & radius=%@", _criteriaPrice, [_criteriaLat doubleValue], [_criteriaLng doubleValue], _criteriaRadius];
+    NSString *post = [NSString stringWithFormat:@"price=%@&GPSlad=%f&GPSlong=%f&radius=%@", _criteriaPrice, [_criteriaLat doubleValue], [_criteriaLng doubleValue], _criteriaRadius];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+    
+    NSLog(@"url:%@ \npost:%@", url, post);
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init] ;
     [request setURL:[NSURL URLWithString:url]];
@@ -75,16 +83,8 @@
     
     NSHTTPURLResponse *urlResponse = nil;
     NSError *error = [[NSError alloc]init];
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error: &error ];
-    NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    
-    NSLog(@"Reponse code:%ld", (long)[urlResponse statusCode]);
-    if([urlResponse statusCode] >=200 && [urlResponse statusCode] < 300) {
-        NSLog(@"Response: %@", result);
-        
-    }
-
-    /*
+    [ NSURLConnection connectionWithRequest:request delegate:self ];
+        /*
     //-------
     
     // Download the json file
@@ -104,7 +104,7 @@
 - (void)downloadGooglePlaces {
     [self initLocatonManager];
     
-    if( _criteriaLat == nil) {
+    if( _criteriaLat == nil || _criteriaLat == 0) {
         _criteriaLat = [ NSNumber numberWithFloat: 40.768608 ];
         _criteriaLng = [ NSNumber numberWithFloat: -73.965304];
     }
@@ -118,7 +118,6 @@
                      @"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%@,%@&radius=500&types=restaurant&maxpice=%@&key=AIzaSyC2TYszFCEbi09cLFheG9N8tqL30FtKg2g", userLat, userLng, userPrice ];
     NSLog(@"url:%@", url);
     
-    //@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.768608,-73.965304&radius=500&types=restaurant&maxpice=4&key=AIzaSyC2TYszFCEbi09cLFheG9N8tqL30FtKg2g"
     // --- directly using google api
     NSURL *googlePlacesURL = [NSURL URLWithString:url];
     NSMutableURLRequest *googleRequest = [[NSMutableURLRequest alloc] initWithURL:googlePlacesURL];
@@ -138,6 +137,46 @@
 {
 //    NSLog(@"data is %@", data);
     [_downloadedData appendData:data];
+}
+
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    // Parse the JSON that came in
+    NSError *error;
+    NSString *stringData = [[NSString alloc] initWithData: _downloadedData encoding:NSUTF8StringEncoding];
+    NSLog(@"\n\n******** Downloaded data: %@", stringData);
+    
+    if( [stringData isEqual: @"\"Sorry. There are no events near you. Try modifying your search criteria.\""]) {
+
+        NSMutableArray *_locations = [[NSMutableArray alloc] init];
+        IDKDetail *detail = [[IDKDetail alloc] init];
+        detail.Name = @"No event returned";
+        detail.address = @"";
+        detail.date = @"";
+        detail.time = @"";
+        detail.lat = _criteriaLat; // [ NSNumber numberWithDouble: [jsonElement[@"GPSlad"] doubleValue] ];
+        detail.lng = _criteriaLng; // [ NSNumber numberWithDouble: [jsonElement[@"GPSlong"] doubleValue] ];
+        detail.venueName = @"";
+        detail.info = @"";
+        detail.iconPath = @"";
+
+        
+        [ _locations addObject:detail];
+        if (self.delegate)
+        {
+            [self.delegate itemsDownloaded:_locations];
+        }
+    } else {
+        if( self.isEvent ==  NO ) {
+            NSDictionary *dArray = [NSJSONSerialization JSONObjectWithData:_downloadedData options:NSJSONReadingAllowFragments error:&error];
+            [self parseGoogleResults:dArray];
+        } else {
+            // Loop through Json objects, create question objects and add them to our questions array
+            NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:_downloadedData options:NSJSONReadingAllowFragments error:&error];
+            [self parseEventResults:jsonArray];
+        }
+    }
 }
 
 - (void)parseGoogleResults :(NSDictionary *)dict {
@@ -247,19 +286,5 @@
 
 }
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    // Parse the JSON that came in
-    NSError *error;
-    
-    if( self.isEvent ==  NO ) {
-        NSDictionary *dArray = [NSJSONSerialization JSONObjectWithData:_downloadedData options:NSJSONReadingAllowFragments error:&error];
-        [self parseGoogleResults:dArray];
-    } else {
-        // Loop through Json objects, create question objects and add them to our questions array
-        NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:_downloadedData options:NSJSONReadingAllowFragments error:&error];
-        [self parseEventResults:jsonArray];
-    }
-}
 
 @end

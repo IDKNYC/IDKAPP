@@ -110,6 +110,7 @@
     // Return the number of rows in the section.
     return [self->searchResults count];
     //Set background color of table view (translucent)
+    
     self.tableView.backgroundColor = [UIColor colorWithRed:0.0 green:0.2 blue:0.5 alpha:0.7];
     
 //    return 3;
@@ -132,8 +133,6 @@
         cell.backgroundColor = altCellColor;
         
     }
-    
-    
     
     return cell;
 }
