@@ -64,6 +64,12 @@
 - (void) initPicker {
     _radiusArray = @[@"0.5", @"1", @"2", @"5", @"10"];
     _priceArray = @[@"1", @"2", @"3", @"4"];
+    
+//    _picker = [[ UIPickerView alloc] init];
+//    _picker.dataSource = self;
+//    _picker.delegate = self;
+    
+//    [self.view addSubview: _picker ];
 }
 
 #pragma mark -
@@ -92,12 +98,54 @@
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {   
     _maxRadius.text = _radiusArray[row];
+    _picker.hidden = YES;
 }
 
 -(IBAction)textFieldReturn:(id)sender
 {
-    [sender resignFirstResponder];
-    [self.view endEditing:YES];
+    [self.maxRadius resignFirstResponder];
+    //    [self.view endEditing:YES];
+    _picker.hidden = NO;
+}
+
+- (IBAction)valueCanged:(id)sender {
+    
+    if( sender == self.maxRadius ) {
+        NSLog(@" raidus is %@", self.maxRadius.text );
+        NSString *radiusInput = self.maxRadius.text;
+        if( radiusInput == nil || [radiusInput  isEqual: @""] ) {
+            return;
+        }
+        if(  ![ radiusInput isEqual:@"0.5" ] &&
+           ![ radiusInput isEqual:@"1" ] &&
+           ![ radiusInput isEqual:@"2"] &&
+           ![ radiusInput isEqual:@"5" ] )   {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid radius" message:@"Must be 0.5, 1, 2 or 5" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil ];
+            
+            self.maxRadius.text = @"0.5";
+            [alert show];
+        }
+    } else if ( sender == self.maxPrice ) {
+        if( ![_category  isEqual: @"Event"] ) {
+            NSString *priceInput = self.maxPrice.text;
+            if( priceInput == nil || [ priceInput  isEqual: @""] ) {
+                return;
+            }
+            if( ![ priceInput isEqual:@"1"] &&
+                ![ priceInput isEqual:@"2"] &&
+                ![ priceInput isEqual:@"3"] &&
+                ![ priceInput isEqual:@"4"]) {
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid price level" message:@"Must be 1, 2, 3 or 4" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil ];
+                
+                self.maxRadius.text = @"1";
+                [alert show];
+                self.maxPrice.text = @"1";
+
+            }
+        }
+    }
+    
 }
 
 // --------------- //
@@ -105,10 +153,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
     [self initSegmentedControl];
     [self initPicker];
-    // Do any additional setup after loading the view from its nib.
     
+    self.maxPrice.text = @"1";
+    self.maxRadius.text = @"0.5";
+//    self.maxRadius.inputView = self.picker;
+//    NSLog(@"check:%@", [self.picker numberOfComponents] );
 }
 
 - (void)didReceiveMemoryWarning

@@ -33,8 +33,8 @@
     CLLocationCoordinate2D coord;
 //    if([self.selectedVenue.lat]){}
 //    if( self.selectedVenue.lat != *nil) {
-        coord.latitude =  self.selectedVenue.lat;
-        coord.longitude = self.selectedVenue.lng;
+        coord.latitude = [self.selectedVenue.lat doubleValue];
+        coord.longitude = [self.selectedVenue.lng doubleValue];
 //    } else {
 //        coord.latitude = 40.7679;
 //        coord.longitude = -73.9650;

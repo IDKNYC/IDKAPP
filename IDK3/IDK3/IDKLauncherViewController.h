@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "IDKResultsTableViewController.h"
 
-@interface IDKLauncherViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface IDKLauncherViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *maxRadius;
 @property (weak, nonatomic) IBOutlet UITextField *maxPrice;

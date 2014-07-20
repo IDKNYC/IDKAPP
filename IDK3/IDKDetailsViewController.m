@@ -170,8 +170,8 @@
     [super viewWillAppear:animated];
     
     CLLocationCoordinate2D coord;
-    coord.latitude =  self.selectedVenue.lat;
-    coord.longitude = self.selectedVenue.lng;
+    coord.latitude =  [self.selectedVenue.lat doubleValue];
+    coord.longitude = [self.selectedVenue.lng doubleValue];
     MKCoordinateSpan span = {.latitudeDelta =  0.002, .longitudeDelta =  0.002};
     MKCoordinateRegion region = {coord, span};
     IDKAnnotation *annotation = [[IDKAnnotation alloc]initWithCoordinate:coord title:self.selectedVenue.venueName];

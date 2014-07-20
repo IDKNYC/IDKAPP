@@ -81,8 +81,11 @@
     NSLog(@"Reponse code:%d", [urlResponse statusCode]);
     if([urlResponse statusCode] >=200 && [urlResponse statusCode] < 300) {
         NSLog(@"Response: %@", result);
+        
+        if(
     }
 
+    /*
     //-------
     
     // Download the json file
@@ -95,6 +98,7 @@
     [NSURLConnection connectionWithRequest:urlRequest delegate:self];
     
 //    NSURLConnection *connection= [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+     */
     
 }
 
@@ -228,8 +232,8 @@
         newLocation.address = jsonElement[@"address"];
         newLocation.date = jsonElement[@"date"];
         newLocation.time = jsonElement[@"time"];
-        newLocation.lat = [jsonElement[@"GPSlad"] doubleValue];
-        newLocation.lng = [jsonElement[@"GPSlong"] doubleValue];
+        newLocation.lat = [ NSNumber numberWithDouble: [jsonElement[@"GPSlad"] doubleValue] ];
+        newLocation.lng = [ NSNumber numberWithDouble: [jsonElement[@"GPSlong"] doubleValue] ];
         newLocation.venueName = jsonElement[@"eventVenue"];
         newLocation.info = jsonElement[@"eventInfo"];
         newLocation.iconPath = jsonElement[@"logo"];

@@ -22,7 +22,7 @@
 @property NSString *phone;
 
 
-@property double lat;
-@property double lng;
+@property NSNumber *lat;
+@property NSNumber *lng;
 
 @end
