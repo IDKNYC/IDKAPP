@@ -63,7 +63,7 @@
         _criteriaLat =  @40.840969429;
         _criteriaLng = @-73.965304239;
     }
-//    _criteriaRadius = @5;
+    _criteriaRadius = @5;
     
     // Create url path with parameters
     NSString *url = [[NSString alloc] initWithFormat: @"http://idontknow.info/eventRequest.php"];
@@ -110,8 +110,8 @@
     }
 //    [locationManager stopUpdatingLocation];
     
-    NSString *userLat = [ NSString stringWithFormat:@"%@", _criteriaLat ]; // @"40.768608";
-    NSString *userLng = [ NSString stringWithFormat:@"%@", _criteriaLng ]; // @"-73.965304";
+    NSString *userLat = [ NSString stringWithFormat:@"%@f.8", _criteriaLat ]; // @"40.768608";
+    NSString *userLng = [ NSString stringWithFormat:@"%@f.8", _criteriaLng ]; // @"-73.965304";
     NSString *userPrice = _criteriaPrice; // @"3";
 
     NSString *url = [[NSString alloc] initWithFormat:
@@ -239,11 +239,8 @@
     
     // get random 3 from group's array
     
-    
-    
     int counter = 0;
     int numInGroups = (unsigned int) [groups count];
-    
     if( numInGroups < 3 ){
         _locations = groups;
     } else {
