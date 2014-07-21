@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>75B48F32-B7A3-431E-97C5-D23FF4507BB2</string>
+	<string>FA7E78E4-3E65-485F-9BC4-0E2D63C5F7CC</string>
 	<key>IDESourceControlProjectName</key>
 	<string>IDK3</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>0BFB67A6-1FD3-44F8-BDD4-252AE4A9EF34</key>
-		<string>https://bitbucket.org/shighstein/idkapp.git</string>
+		<key>9E56861A-D36F-43BB-ACE2-3AD6ACC5C737</key>
+		<string>https://github.com/IDKNYC/IDKAPP.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>IDK3/IDK3.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>0BFB67A6-1FD3-44F8-BDD4-252AE4A9EF34</key>
+		<key>9E56861A-D36F-43BB-ACE2-3AD6ACC5C737</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://bitbucket.org/shighstein/idkapp.git</string>
+	<string>https://github.com/IDKNYC/IDKAPP.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>0BFB67A6-1FD3-44F8-BDD4-252AE4A9EF34</string>
+	<string>9E56861A-D36F-43BB-ACE2-3AD6ACC5C737</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>0BFB67A6-1FD3-44F8-BDD4-252AE4A9EF34</string>
+			<string>9E56861A-D36F-43BB-ACE2-3AD6ACC5C737</string>
 			<key>IDESourceControlWCCName</key>
-			<string>idkapp</string>
+			<string>IDKAPP</string>
 		</dict>
 	</array>
 </dict>

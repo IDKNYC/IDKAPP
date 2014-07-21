@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IDK3/getEvents.m"
-            timestampString = "427590898.926809"
+            timestampString = "427601993.957248"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "-parseEventResults:"
             landmarkType = "5">
          </BreakpointContent>
@@ -96,22 +96,6 @@
             startingLineNumber = "116"
             endingLineNumber = "116"
             landmarkName = "-downloadGooglePlaces"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IDK3/getEvents.m"
-            timestampString = "427590481.859632"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
-            landmarkName = "-parseGoogleResults:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
