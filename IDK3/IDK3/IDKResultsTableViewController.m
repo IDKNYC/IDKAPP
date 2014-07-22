@@ -45,8 +45,8 @@
     
     // set criteria for search
     
-    dbSvc.criteriaPrice = _maxPx? _maxPx : [NSMutableString stringWithString:@"1"];
-    dbSvc.criteriaRadius = _maxRadius? _maxRadius :[NSMutableString stringWithString:@"1"];
+    dbSvc.criteriaPrice = _maxPx;
+    dbSvc.criteriaRadius = _maxRadius;
     
     if( _isEvent ) {
         dbSvc.isEvent = TRUE;

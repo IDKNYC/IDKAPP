@@ -22,14 +22,21 @@
     if ([segue.identifier isEqualToString:@"gotoSearchResults"]) {
         IDKResultsTableViewController *destViewController = segue.destinationViewController;
         destViewController.whatType = _category;
-        destViewController.maxPx = [NSMutableString stringWithString:@"2"];
-        destViewController.maxRadius = [NSMutableString stringWithString:@"1"];
         
+        NSNumber *dummyPrice = [[NSNumber alloc]init];
         if([ _category isEqualToString:@"Events"]) {
             destViewController.isEvent = YES;
+            dummyPrice = @1.00;
         } else {
             destViewController.isEvent = NO;
+            dummyPrice = @4;
         }
+        
+        NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle ];
+        
+        destViewController.maxPx = (![ self.maxPrice.text isEqual:@"" ]) ? [ f numberFromString:self.maxPrice.text] : dummyPrice;
+        destViewController.maxRadius = (![ self.maxRadius.text isEqual:@""])? [f numberFromString: self.maxRadius.text] : @5;
     }
 }
 
@@ -48,6 +55,34 @@
     return self;
 }
 
+- (void) formatPriceField {
+    if([ self.category isEqualToString:@"Events"]) {
+        // --- set the prepending $ sign
+        NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init ];
+        [currencyFormatter setLocale:[NSLocale currentLocale]];
+        [currencyFormatter setMaximumFractionDigits:2];
+        [currencyFormatter setMinimumFractionDigits:2];
+        [currencyFormatter setAlwaysShowsDecimalSeparator:YES];
+        [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        
+        NSNumber *someAmount = [NSNumber numberWithDouble:[self.maxPrice.text doubleValue]];
+        NSString *string = [currencyFormatter stringFromNumber:someAmount];
+        
+        self.maxPrice.text = string;
+        //------------------------------
+    } else {
+        NSNumberFormatter *blankFormatter = [[ NSNumberFormatter alloc] init ];
+        [ blankFormatter setNumberStyle:NSNumberFormatterNoStyle ];
+        NSNumber *someAmount = [ NSNumber numberWithDouble:[ self.maxPrice.text doubleValue]];
+        if( [someAmount isEqual: @0 ]) {
+            someAmount = @1;
+        }
+        NSString *string = [ blankFormatter stringFromNumber: someAmount ];
+        self.maxPrice.text = string;
+    }
+    
+}
+
 // --- segmented control --- //
 - (void) initSegmentedControl {
     NSArray *categories = [NSArray arrayWithObjects:@"Test", @"Restaurant", nil];
@@ -63,6 +98,14 @@
 -(IBAction) pickOne:(id)sender{
     UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
     [_category setString: [segmentedControl titleForSegmentAtIndex: [segmentedControl selectedSegmentIndex]] ];
+    [ self formatPriceField ];
+    
+    if( [_category isEqualToString:@"Events" ]){
+        self.maxPrice.placeholder = @"Max in $";
+        
+    } else {
+        self.maxPrice.placeholder = @"1, 2, 3 or 4";
+    }
 }
 
 // --- pickers --- //
@@ -131,7 +174,7 @@
             [alert show];
         }
     } else if ( sender == self.maxPrice ) {
-        if( ![_category  isEqual: @"Event"] ) {
+        if( ![_category  isEqual: @"Events"] ) {
             NSString *priceInput = self.maxPrice.text;
             if( priceInput == nil || [ priceInput  isEqual: @""] ) {
                 return;
@@ -148,10 +191,15 @@
                 self.maxPrice.text = @"1";
 
             }
+        } else {
+            [ self formatPriceField ];
+
         }
     }
     
 }
+
+
 
 // --------------- //
 
@@ -164,6 +212,7 @@
     
     self.maxPrice.text = @"1";
     self.maxRadius.text = @"0.5";
+    [ self formatPriceField ];
 //    self.maxRadius.inputView = self.picker;
 //    NSLog(@"check:%@", [self.picker numberOfComponents] );
 }

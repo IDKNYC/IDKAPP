@@ -110,12 +110,14 @@
     }
 //    [locationManager stopUpdatingLocation];
     
-    NSString *userLat = [ NSString stringWithFormat:@"%@f.8", _criteriaLat ]; // @"40.768608";
-    NSString *userLng = [ NSString stringWithFormat:@"%@f.8", _criteriaLng ]; // @"-73.965304";
-    NSString *userPrice = _criteriaPrice; // @"3";
+    NSString *userLat = [ NSString stringWithFormat:@"%@", _criteriaLat ]; // @"40.768608";
+    NSString *userLng = [ NSString stringWithFormat:@"%@", _criteriaLng ]; // @"-73.965304";
+    NSString *userPrice = [NSString stringWithFormat:@"%@", _criteriaPrice ]; // @"3";
+    int rad = [_criteriaRadius floatValue] * 1000;
+    NSString *userRadius = [ NSString stringWithFormat:@"%d", rad ];
 
     NSString *url = [[NSString alloc] initWithFormat:
-                     @"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%@,%@&radius=500&types=restaurant&maxpice=%@&key=AIzaSyC2TYszFCEbi09cLFheG9N8tqL30FtKg2g", userLat, userLng, userPrice ];
+                     @"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%@,%@&radius=%@&types=restaurant&maxpice=%@&key=AIzaSyC2TYszFCEbi09cLFheG9N8tqL30FtKg2g", userLat, userLng, userRadius, userPrice ];
     NSLog(@"url:%@", url);
     
     // --- directly using google api
@@ -245,7 +247,7 @@
         _locations = groups;
     } else {
         int upperBoundValid = numInGroups-1;
-        for( counter = 0; counter < 3 || counter < upperBoundValid; counter++ ) {
+        for( counter = 0; counter < 3; counter++ ) {
             int x = arc4random() % upperBoundValid;
             [_locations addObject: [ groups objectAtIndex:x]];
         }
