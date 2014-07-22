@@ -174,6 +174,8 @@
         if( ![_category  isEqual: @"Events"] ) {
             NSString *priceInput = self.maxPrice.text;
             if( priceInput == nil || [ priceInput  isEqual: @""] ) {
+                self.maxPrice.text = @"0";
+                
                 return;
             }
             if( ![ priceInput isEqual:@"1"] &&
