@@ -70,12 +70,17 @@
 }
 
 - (void) formatPriceField {
+    
     if([ self.category isEqualToString:@"Events"]) {
         // --- set the prepending $ sign
         NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init ];
         [currencyFormatter setLocale:[NSLocale currentLocale]];
-        [currencyFormatter setMaximumFractionDigits:2];
-        [currencyFormatter setMinimumFractionDigits:2];
+        [currencyFormatter setMaximumFractionDigits: 2];
+        [currencyFormatter setMinimumFractionDigits: 2];
+        [ currencyFormatter setMaximumIntegerDigits: 10];
+        [ currencyFormatter setMaximumSignificantDigits:10];
+        [ currencyFormatter setMaximum: @10000];
+
         [currencyFormatter setAlwaysShowsDecimalSeparator:YES];
         [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
         
@@ -175,18 +180,19 @@
         if(  ![ radiusInput isEqual:@"0.5" ] &&
            ![ radiusInput isEqual:@"1" ] &&
            ![ radiusInput isEqual:@"2"] &&
-           ![ radiusInput isEqual:@"5" ] )   {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid radius" message:@"Must be 0.5, 1, 2 or 5" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil ];
+           ![ radiusInput isEqual:@"5" ] &&
+           ![ radiusInput isEqual:@"10" ])   {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid radius" message:@"Must be 0.5, 1, 2, 5 or 10" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil ];
             
             self.maxRadius.text = @"0.5";
             [alert show];
         }
     } else if ( sender == self.maxPrice ) {
         if( ![_category  isEqual: @"Events"] ) {
+            // I'm in Restaurant search
             NSString *priceInput = self.maxPrice.text;
             if( priceInput == nil || [ priceInput  isEqual: @""] ) {
                 self.maxPrice.text = @"0";
-                
                 return;
             }
             if( ![ priceInput isEqual:@"1"] &&
@@ -202,6 +208,8 @@
 
             }
         } else {
+            // I'm in Event search
+            
             [ self formatPriceField ];
 
         }
