@@ -7,10 +7,13 @@
 //
 
 #import "IDKLauncherViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface IDKLauncherViewController ()
 
 @property (retain, nonatomic) IBOutlet UISegmentedControl *catSelector;
+@property (weak, nonatomic) IBOutlet UIButton *searchButton;
+@property (weak, nonatomic) IBOutlet UIButton *randomizerButton;
 
 @property (nonatomic, strong) NSMutableString *category;
 
@@ -92,7 +95,7 @@
 //    [_category setString: @"Events"];
 
     [self.catSelector addTarget:self action:@selector(pickOne:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:self.catSelector];
+//    [self.view addSubview:self.catSelector];
 }
 
 -(IBAction) pickOne:(id)sender{
@@ -112,12 +115,6 @@
 - (void) initPicker {
     _radiusArray = @[@"0.5", @"1", @"2", @"5", @"10"];
     _priceArray = @[@"1", @"2", @"3", @"4"];
-    
-//    _picker = [[ UIPickerView alloc] init];
-//    _picker.dataSource = self;
-//    _picker.delegate = self;
-    
-//    [self.view addSubview: _picker ];
 }
 
 #pragma mark -
@@ -213,6 +210,15 @@
     self.maxPrice.text = @"1";
     self.maxRadius.text = @"0.5";
     [ self formatPriceField ];
+    
+    [[self.searchButton layer] setBorderWidth:3.0f];
+    [[self.searchButton layer] setBorderColor:[UIColor grayColor].CGColor];
+    
+    
+    [[self.randomizerButton layer] setBorderWidth:3.0f];
+    [[self.randomizerButton layer] setBorderColor:[UIColor grayColor].CGColor];
+
+//    [[self.searchButton layer] setCornerRadius:3.0f];
 //    self.maxRadius.inputView = self.picker;
 //    NSLog(@"check:%@", [self.picker numberOfComponents] );
 }
