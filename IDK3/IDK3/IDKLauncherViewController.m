@@ -37,8 +37,19 @@
         
         NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
         [f setNumberStyle:NSNumberFormatterDecimalStyle ];
+        NSLog(@"price:%@", [ f  numberFromString:self.maxPrice.text] );
         
-        destViewController.maxPx = (![ self.maxPrice.text isEqual:@"" ]) ? [ f numberFromString:self.maxPrice.text] : dummyPrice;
+        NSString *shortString = [[ NSString alloc] init];
+        if( [_category isEqualToString:@"Events"] ) {
+            shortString = [ self.maxPrice.text  substringWithRange:NSMakeRange(1,  _maxPrice.text.length-1 )];
+        } else {
+            shortString = self.maxPrice.text;
+        }
+//        NSString *shortString = [ self.maxPrice.text  substringWithRange:NSMakeRange(1,  _maxPrice.text.length-1 )];
+        
+        NSLog(@"%@", shortString);
+        
+        destViewController.maxPx = (![ self.maxPrice.text isEqual:@"" ]) ? [ f numberFromString:shortString] : dummyPrice;
         destViewController.maxRadius = (![ self.maxRadius.text isEqual:@""])? [f numberFromString: self.maxRadius.text] : @5;
     }
 }
