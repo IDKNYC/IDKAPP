@@ -22,7 +22,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *option1;
 
 @property (strong, nonatomic) IBOutlet UITextField *option2;
-@property (strong, nonatomic) IBOutlet UILabel *result;
+@property (strong, nonatomic) UILabel *result;
 
 - (IBAction)Flip:(UIButton *)sender;
 

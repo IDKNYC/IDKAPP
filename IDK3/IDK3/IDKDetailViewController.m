@@ -73,6 +73,7 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     self.scrollView.delegate = self;
     [IDKCommon addGradientLayerForView:self.view withTopColor:[UIColor whiteColor] bottomColor:[UIColor lightGrayColor]];
@@ -118,6 +119,8 @@
     
     // [self viewWillAppear:YES];
     //[self.view addSubview:self.Logo];
+    
+    
 
 }
 
@@ -135,6 +138,7 @@
                              self.Address.frame = CGRectMake(self.Address.frame.origin.x, self.Address.frame.origin.y-180, self.Address.frame.size.width, self.Address.frame.size.height);
                          }
                          completion:^(BOOL finished){}];
+        
     }
 }
 

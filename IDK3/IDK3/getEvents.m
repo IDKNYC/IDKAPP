@@ -153,7 +153,7 @@
 
         NSMutableArray *_locations = [[NSMutableArray alloc] init];
         IDKDetail *detail = [[IDKDetail alloc] init];
-        detail.Name = @"No event returned";
+        detail.Name = @"             No event returned";
         detail.address = @"";
         detail.date = @"";
         detail.time = @"";
@@ -162,6 +162,8 @@
         detail.venueName = @"";
         detail.info = @"";
         detail.iconPath = @"";
+        
+        
 
         
         [ _locations addObject:detail];
