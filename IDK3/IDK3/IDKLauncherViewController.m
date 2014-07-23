@@ -38,8 +38,22 @@
         NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
         [f setNumberStyle:NSNumberFormatterDecimalStyle ];
         
+        NSLog(@"price:%@", [ f  numberFromString:self.maxPrice.text] );
+        
         destViewController.maxPx = (![ self.maxPrice.text isEqual:@"" ]) ? [ f numberFromString:self.maxPrice.text] : dummyPrice;
+        NSString *shortString = [[ NSString alloc] init];
+        if( [_category isEqualToString:@"Events"] ) {
+            shortString = [ self.maxPrice.text  substringWithRange:NSMakeRange(1,  _maxPrice.text.length-1 )];
+        } else {
+            shortString = self.maxPrice.text;
+        }
+        //        NSString *shortString = [ self.maxPrice.text  substringWithRange:NSMakeRange(1,  _maxPrice.text.length-1 )];
+        
+        NSLog(@"%@", shortString);
+        
+        destViewController.maxPx = (![ self.maxPrice.text isEqual:@"" ]) ? [ f numberFromString:shortString] : dummyPrice;
         destViewController.maxRadius = (![ self.maxRadius.text isEqual:@""])? [f numberFromString: self.maxRadius.text] : @5;
+
     }
 }
 
@@ -164,8 +178,9 @@
         if(  ![ radiusInput isEqual:@"0.5" ] &&
            ![ radiusInput isEqual:@"1" ] &&
            ![ radiusInput isEqual:@"2"] &&
-           ![ radiusInput isEqual:@"5" ] )   {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid radius" message:@"Must be 0.5, 1, 2 or 5" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil ];
+           ![ radiusInput isEqual:@"5" ] &&
+           ![ radiusInput isEqual:@"10" ])   {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid radius" message:@"Must be 0.5, 1, 2, 5 or 10" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil ];
             
             self.maxRadius.text = @"0.5";
             [alert show];
