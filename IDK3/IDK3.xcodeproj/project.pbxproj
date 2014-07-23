@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9511D7021975C116005A7631 /* IDKDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9511D7011975C116005A7631 /* IDKDetailsViewController.m */; };
+		DD71D3D0197F5C3700997381 /* launcher.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD71D3CF197F5C3700997381 /* launcher.jpg */; };
 		DDAD0D371975AB3C001D2D76 /* IDKCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAD0D361975AB3C001D2D76 /* IDKCommon.m */; };
 		DDAD0D3A19798909001D2D76 /* IDKCoinFlipperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAD0D3919798909001D2D76 /* IDKCoinFlipperViewController.m */; };
 		DDAD0D3E197EE1A0001D2D76 /* ios-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAD0D3B197EE1A0001D2D76 /* ios-top@2x.png */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		9511D7001975C116005A7631 /* IDKDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDKDetailsViewController.h; path = ../IDKDetailsViewController.h; sourceTree = "<group>"; };
 		9511D7011975C116005A7631 /* IDKDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDKDetailsViewController.m; path = ../IDKDetailsViewController.m; sourceTree = "<group>"; };
+		DD71D3CF197F5C3700997381 /* launcher.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = launcher.jpg; sourceTree = "<group>"; };
 		DDAD0D351975AB3C001D2D76 /* IDKCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDKCommon.h; sourceTree = "<group>"; };
 		DDAD0D361975AB3C001D2D76 /* IDKCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDKCommon.m; sourceTree = "<group>"; };
 		DDAD0D3819798909001D2D76 /* IDKCoinFlipperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDKCoinFlipperViewController.h; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				DDAD0D41197EE2C9001D2D76 /* ios-top.png */,
 				DDAD0D42197EE2C9001D2D76 /* ios-result-view.png */,
 				DDAD0D43197EE2C9001D2D76 /* ios-search-top.png */,
+				DD71D3CF197F5C3700997381 /* launcher.jpg */,
 				E59B108D1962F4C1009353A7 /* IDK3 */,
 				E59B10AA1962F4C1009353A7 /* IDK3Tests */,
 				E59B10841962F4C1009353A7 /* Frameworks */,
@@ -356,6 +359,7 @@
 				E59B10C21962F7AA009353A7 /* IDKLauncherViewController.xib in Resources */,
 				DDAD0D3F197EE1A0001D2D76 /* ios-search-top@2x.png in Resources */,
 				E59B10C71962FB79009353A7 /* IDKResultsTableViewController.xib in Resources */,
+				DD71D3D0197F5C3700997381 /* launcher.jpg in Resources */,
 				DDAD0D44197EE2C9001D2D76 /* ios-top.png in Resources */,
 				E59B10E619687416009353A7 /* idk2.html in Resources */,
 			);

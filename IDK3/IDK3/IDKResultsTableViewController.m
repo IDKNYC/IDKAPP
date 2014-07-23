@@ -14,6 +14,7 @@
 }
 
 //@property NSMutableArray *searchResults;
+@property (strong, nonatomic) UIBarButtonItem *pickForMe;
 
 @end
 
@@ -76,33 +77,57 @@
     // Set this view controller object as the delegate and data source for the table view
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    UIImage *image = [UIImage imageNamed: @"ios-search-top.png"];
-    UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 84)];
-    imageview.image = image;
-    imageview.contentMode = UIViewContentModeScaleAspectFill;
-    UILabel *label = [[UILabel alloc] initWithFrame:imageview.frame];
-    label.text =@"Test";
-    label.textColor = [UIColor whiteColor];
-    label.font = [UIFont boldSystemFontOfSize:20.0f];
-    label.textAlignment = NSTextAlignmentCenter;
     
-    [imageview addSubview:label];
-    
-    
-    // set the text view to the image view
-    self.navigationItem.titleView = imageview;
-    self.navigationItem.titleView.frame = imageview.frame;
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    self->searchResults = [[NSMutableArray alloc] init ];
+    self.pickForMe = [[UIBarButtonItem alloc] initWithTitle:@"Pick one" style:UIBarButtonItemStylePlain target:self action:@selector(pickForMeHandler:)];
+    self.navigationItem.rightBarButtonItem = self.pickForMe;
+    self->searchResults = [[NSMutableArray alloc] init];
     [self executeSearch];
     
 //    NSLog(@"Number of people:", self.numPeople);
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    UIImage *image = [UIImage imageNamed: @"ios-search-top.png"];
+    
+    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                           NSFontAttributeName: [UIFont boldSystemFontOfSize:20]}];
+    
+    self.navigationController.navigationBar.topItem.title = @"Back";
+    self.navigationItem.title = @"IDK!?";
+    
+    // set the text view to the image view
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+}
+
+- (void) pickForMeHandler:(UIBarButtonItem *)barButtonItem
+{
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    NSLog(@"pick for me handler");
+    int numberOfResults = [self->searchResults count];
+    
+    int random = arc4random_uniform(numberOfResults*10);
+    int selectedRow = 0;
+    if (random < 10) {
+        // Pick the first
+        selectedRow = 0;
+    }
+    else if (random < 20)
+    {
+        selectedRow = 1;
+    }
+    else
+    {
+        selectedRow = 2;
+    }
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:selectedRow inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
 }
 
 - (void)didReceiveMemoryWarning
@@ -210,21 +235,7 @@
     // [self performSegueWithIdentifier:@"goToDetail" sender:self];
     
     NSLog(@"I'm here");
-    
-    
-//    detailViewController.selectedVenue = [[IDKDetail alloc] init];
-//    
-//    // Pass the selected object to the new view controller.
-//    
-//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    
-//    IDKDetail *tempVenue = [[IDKDetail alloc] init];
-//    tempVenue.venueName = cell.textLabel.text; // @"temp name";
-//    
-//    detailViewController.selectedVenue = tempVenue;
-    
-    // Push the view controller.
-//    [self.navigationController pushViewController:detailViewController animated:YES];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 @end
