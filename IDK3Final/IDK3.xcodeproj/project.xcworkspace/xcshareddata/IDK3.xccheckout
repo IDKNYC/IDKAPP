@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FA7E78E4-3E65-485F-9BC4-0E2D63C5F7CC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>IDK3</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9E56861A-D36F-43BB-ACE2-3AD6ACC5C737</key>
+		<string>https://github.com/IDKNYC/IDKAPP.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>IDK3/IDK3.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9E56861A-D36F-43BB-ACE2-3AD6ACC5C737</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/IDKNYC/IDKAPP.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9E56861A-D36F-43BB-ACE2-3AD6ACC5C737</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9E56861A-D36F-43BB-ACE2-3AD6ACC5C737</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IDKAPP</string>
+		</dict>
+	</array>
+</dict>
+</plist>
