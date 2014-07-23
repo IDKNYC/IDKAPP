@@ -38,7 +38,7 @@
 {
     [super viewDidLoad];
     
-    UIImage *Navimage = [UIImage imageNamed: @"ios-result-view.png"];
+    UIImage *Navimage = [UIImage imageNamed: @"ios-result-view@2x.png"];
     [self.navigationController.navigationBar setBackgroundImage:Navimage forBarMetrics:UIBarMetricsDefault];
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],

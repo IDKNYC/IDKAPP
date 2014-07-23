@@ -254,14 +254,14 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    UIImage *image = [UIImage imageNamed: @"ios-top.png"];
+    UIImage *image = [UIImage imageNamed: @"ios-top@2x.png"];
     
-    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:image  forBarMetrics:UIBarMetricsDefault];
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
                                                            NSFontAttributeName: [UIFont boldSystemFontOfSize:20]}];
     self.navigationItem.title = @"IDK!?!";
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent; // UIBarStyleBlack;
 }
 
 

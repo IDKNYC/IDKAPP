@@ -87,7 +87,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    UIImage *image = [UIImage imageNamed: @"ios-search-top.png"];
+    UIImage *image = [UIImage imageNamed: @"ios-search-top@2x.png"];
     
     [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     
