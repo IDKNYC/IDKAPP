@@ -38,7 +38,15 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = self.selectedVenue.Name;
+    UIImage *Navimage = [UIImage imageNamed: @"ios-result-view.png"];
+    [self.navigationController.navigationBar setBackgroundImage:Navimage forBarMetrics:UIBarMetricsDefault];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                           NSFontAttributeName: [UIFont boldSystemFontOfSize:20]}];
+    self.navigationItem.title = @"IDK!?";
+    self.navigationController.navigationBar.topItem.title = @"Back";
+    //self.navigationItem.backBarButtonItem.title = @"back";
+    // self.navigationItem.title = self.selectedVenue.Name;
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     self.scrollView.delegate = self; // Set delegate
         CGFloat y = 84;

@@ -53,7 +53,6 @@
         
         destViewController.maxPx = (![ self.maxPrice.text isEqual:@"" ]) ? [ f numberFromString:shortString] : dummyPrice;
         destViewController.maxRadius = (![ self.maxRadius.text isEqual:@""])? [f numberFromString: self.maxRadius.text] : @5;
-
     }
 }
 
@@ -76,9 +75,9 @@
     if([ self.category isEqualToString:@"Events"]) {
         // --- set the prepending $ sign
         NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init ];
-        [currencyFormatter setLocale:[NSLocale currentLocale]];
-        [currencyFormatter setMaximumFractionDigits:2];
-        [currencyFormatter setAlwaysShowsDecimalSeparator:YES];
+//        [currencyFormatter setLocale:[NSLocale currentLocale]];
+//        [currencyFormatter setMaximumFractionDigits:2];
+//        [currencyFormatter setAlwaysShowsDecimalSeparator:YES];
         [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
         
         
@@ -86,7 +85,6 @@
         NSString *string = [currencyFormatter stringFromNumber:someAmount];
         
         self.maxPrice.text = string;
-        //------------------------------
     } else {
         NSNumberFormatter *blankFormatter = [[ NSNumberFormatter alloc] init ];
         [ blankFormatter setNumberStyle:NSNumberFormatterNoStyle ];
@@ -179,17 +177,16 @@
            ![ radiusInput isEqual:@"1" ] &&
            ![ radiusInput isEqual:@"2"] &&
            ![ radiusInput isEqual:@"5" ] &&
-           ![ radiusInput isEqual:@"10" ])   {
+           ![ radiusInput isEqual:@"10" ] )   {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid radius" message:@"Must be 0.5, 1, 2, 5 or 10" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil ];
             
             self.maxRadius.text = @"0.5";
             [alert show];
         }
     } else if ( sender == self.maxPrice ) {
-        NSLog(@"Category: %@", self.category);
+         NSLog(@"Category: %@", self.category);
         
         if( ![_category  isEqual: @"Events"] ) {
-            
             NSString *priceInput = self.maxPrice.text;
             if( priceInput == nil || [ priceInput  isEqual: @""] ) {
                 return;
@@ -226,7 +223,7 @@
     [self initPicker];
     
     self.maxPrice.text = @"1";
-    self.maxRadius.text = @"0.5";
+    self.maxRadius.text = @"5";
     [ self formatPriceField ];
     
     
@@ -239,24 +236,32 @@
 
     
     /*self.searchButton.layer.borderWidth = 1.0f;
-    self.searchButton.layer.cornerRadius = 6.0f;
+    self.searchButton.layer.cornerRadius = 6.0f; 
     self.searchButton.layer.borderColor = [UIColor grayColor].CGColor;
     
     self.randomizerButton.layer.borderWidth = 1.0;
     self.randomizerButton.layer.cornerRadius = 6.0;
     self.randomizerButton.layer.borderColor = [UIColor grayColor].CGColor; */
+
     
-    UIImage *image = [UIImage imageNamed: @"ios-top.png"];
-    UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 84)];
-    imageview.image = image;
-    imageview.contentMode = UIViewContentModeScaleAspectFill;
-    
-    // set the text view to the image view
-    self.navigationItem.titleView = imageview;
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 //    [[self.searchButton layer] setCornerRadius:3.0f];
 //    self.maxRadius.inputView = self.picker;
 //    NSLog(@"check:%@", [self.picker numberOfComponents] );
+}
+
+
+//Mahdi
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    UIImage *image = [UIImage imageNamed: @"ios-top.png"];
+    
+    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                           NSFontAttributeName: [UIFont boldSystemFontOfSize:20]}];
+    self.navigationItem.title = @"IDK!?";
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 
 
