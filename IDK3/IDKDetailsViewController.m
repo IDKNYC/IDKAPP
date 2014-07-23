@@ -43,7 +43,7 @@
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
                                                            NSFontAttributeName: [UIFont boldSystemFontOfSize:20]}];
-    self.navigationItem.title = @"IDK!?";
+    self.navigationItem.title = [NSString stringWithFormat:@"%@", self.selectedVenue.Name ]; // @"IDK!?";
     self.navigationController.navigationBar.topItem.title = @"Back";
     //self.navigationItem.backBarButtonItem.title = @"back";
     // self.navigationItem.title = self.selectedVenue.Name;

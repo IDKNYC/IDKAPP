@@ -15,6 +15,7 @@
 
 //@property NSMutableArray *searchResults;
 @property (strong, nonatomic) UIBarButtonItem *pickForMe;
+@property (weak, nonatomic) IBOutlet UIButton *searchAgainButton;
 
 @end
 
@@ -78,12 +79,15 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+//    [[self.searchAgainButton layer] setBorderWidth:3.0f];
+//    [[self.searchAgainButton layer] setBorderColor:[UIColor grayColor].CGColor];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.pickForMe = [[UIBarButtonItem alloc] initWithTitle:@"Pick one" style:UIBarButtonItemStylePlain target:self action:@selector(pickForMeHandler:)];
+//    self.pickForMe = [[UIBarButtonItem alloc] initWithTitle:@"Pick one" style:UIBarButtonItemStylePlain target:self action:@selector(pickForMeHandler:)];
     self.navigationItem.rightBarButtonItem = self.pickForMe;
     self->searchResults = [[NSMutableArray alloc] init];
     [self executeSearch];
@@ -101,7 +105,8 @@
                                                            NSFontAttributeName: [UIFont boldSystemFontOfSize:20]}];
     
     self.navigationController.navigationBar.topItem.title = @"Back";
-    self.navigationItem.title = @"IDK!?";
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationItem.title = @"Search Results";
     
     // set the text view to the image view
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;

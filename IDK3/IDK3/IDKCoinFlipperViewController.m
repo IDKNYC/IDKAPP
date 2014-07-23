@@ -9,6 +9,7 @@
 #import "IDKCoinFlipperViewController.h"
 
 @interface IDKCoinFlipperViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *randomizeButton;
 
 @end
 
@@ -32,6 +33,10 @@
 
     
     // Do any additional setup after loading the view.
+    
+    [[self.randomizeButton layer] setBorderWidth:3.0f];
+    [[self.randomizeButton layer] setBorderColor:[UIColor grayColor].CGColor];
+    
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     self.result = [[UILabel alloc] initWithFrame:CGRectMake(20, 360, 280, 22)];
@@ -43,8 +48,9 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    UIImage *image = [UIImage imageNamed: @"ios-search-top.png"];
+    UIImage *image = [UIImage imageNamed: @"randomizer.png"];
     self.navigationController.navigationBar.topItem.title = @"Back";
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     //self.navigationItem.leftBarButtonItem.title = @"Back";
     /*UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 84)];
      imageview.image = image;
@@ -61,7 +67,7 @@
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
                                                            NSFontAttributeName: [UIFont boldSystemFontOfSize:20]}];
-    self.navigationItem.title = @"IDK!?";
+    self.navigationItem.title = @"Randomizer";
 }
 
 - (void)didReceiveMemoryWarning

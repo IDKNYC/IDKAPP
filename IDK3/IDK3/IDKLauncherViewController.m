@@ -260,7 +260,7 @@
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
                                                            NSFontAttributeName: [UIFont boldSystemFontOfSize:20]}];
-    self.navigationItem.title = @"IDK!?";
+    self.navigationItem.title = @"IDK!?!";
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 
