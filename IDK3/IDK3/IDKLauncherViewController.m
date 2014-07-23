@@ -11,9 +11,9 @@
 
 @interface IDKLauncherViewController ()
 
-@property (retain, nonatomic) IBOutlet UISegmentedControl *catSelector;
-@property (weak, nonatomic) IBOutlet UIButton *searchButton;
-@property (weak, nonatomic) IBOutlet UIButton *randomizerButton;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *catSelector;
+@property (strong, nonatomic) IBOutlet UIButton *searchButton;
+@property (strong, nonatomic) IBOutlet UIButton *randomizerButton;
 
 @property (nonatomic, strong) NSMutableString *category;
 
@@ -37,19 +37,8 @@
         
         NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
         [f setNumberStyle:NSNumberFormatterDecimalStyle ];
-        NSLog(@"price:%@", [ f  numberFromString:self.maxPrice.text] );
         
-        NSString *shortString = [[ NSString alloc] init];
-        if( [_category isEqualToString:@"Events"] ) {
-            shortString = [ self.maxPrice.text  substringWithRange:NSMakeRange(1,  _maxPrice.text.length-1 )];
-        } else {
-            shortString = self.maxPrice.text;
-        }
-//        NSString *shortString = [ self.maxPrice.text  substringWithRange:NSMakeRange(1,  _maxPrice.text.length-1 )];
-        
-        NSLog(@"%@", shortString);
-        
-        destViewController.maxPx = (![ self.maxPrice.text isEqual:@"" ]) ? [ f numberFromString:shortString] : dummyPrice;
+        destViewController.maxPx = (![ self.maxPrice.text isEqual:@"" ]) ? [ f numberFromString:self.maxPrice.text] : dummyPrice;
         destViewController.maxRadius = (![ self.maxRadius.text isEqual:@""])? [f numberFromString: self.maxRadius.text] : @5;
     }
 }
@@ -70,17 +59,12 @@
 }
 
 - (void) formatPriceField {
-    
     if([ self.category isEqualToString:@"Events"]) {
         // --- set the prepending $ sign
         NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init ];
         [currencyFormatter setLocale:[NSLocale currentLocale]];
-        [currencyFormatter setMaximumFractionDigits: 2];
-        [currencyFormatter setMinimumFractionDigits: 2];
-        [ currencyFormatter setMaximumIntegerDigits: 10];
-        [ currencyFormatter setMaximumSignificantDigits:10];
-        [ currencyFormatter setMaximum: @10000];
-
+        [currencyFormatter setMaximumFractionDigits:2];
+        [currencyFormatter setMinimumFractionDigits:2];
         [currencyFormatter setAlwaysShowsDecimalSeparator:YES];
         [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
         
@@ -180,19 +164,16 @@
         if(  ![ radiusInput isEqual:@"0.5" ] &&
            ![ radiusInput isEqual:@"1" ] &&
            ![ radiusInput isEqual:@"2"] &&
-           ![ radiusInput isEqual:@"5" ] &&
-           ![ radiusInput isEqual:@"10" ])   {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid radius" message:@"Must be 0.5, 1, 2, 5 or 10" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil ];
+           ![ radiusInput isEqual:@"5" ] )   {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid radius" message:@"Must be 0.5, 1, 2 or 5" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil ];
             
             self.maxRadius.text = @"0.5";
             [alert show];
         }
     } else if ( sender == self.maxPrice ) {
         if( ![_category  isEqual: @"Events"] ) {
-            // I'm in Restaurant search
             NSString *priceInput = self.maxPrice.text;
             if( priceInput == nil || [ priceInput  isEqual: @""] ) {
-                self.maxPrice.text = @"0";
                 return;
             }
             if( ![ priceInput isEqual:@"1"] &&
@@ -208,8 +189,6 @@
 
             }
         } else {
-            // I'm in Event search
-            
             [ self formatPriceField ];
 
         }
@@ -232,6 +211,7 @@
     self.maxRadius.text = @"0.5";
     [ self formatPriceField ];
     
+    
     [[self.searchButton layer] setBorderWidth:3.0f];
     [[self.searchButton layer] setBorderColor:[UIColor grayColor].CGColor];
     
@@ -239,10 +219,28 @@
     [[self.randomizerButton layer] setBorderWidth:3.0f];
     [[self.randomizerButton layer] setBorderColor:[UIColor grayColor].CGColor];
 
+    
+    /*self.searchButton.layer.borderWidth = 1.0f;
+    self.searchButton.layer.cornerRadius = 6.0f;
+    self.searchButton.layer.borderColor = [UIColor grayColor].CGColor;
+    
+    self.randomizerButton.layer.borderWidth = 1.0;
+    self.randomizerButton.layer.cornerRadius = 6.0;
+    self.randomizerButton.layer.borderColor = [UIColor grayColor].CGColor; */
+    
+    UIImage *image = [UIImage imageNamed: @"ios-top.png"];
+    UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 84)];
+    imageview.image = image;
+    imageview.contentMode = UIViewContentModeScaleAspectFill;
+    
+    // set the text view to the image view
+    self.navigationItem.titleView = imageview;
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 //    [[self.searchButton layer] setCornerRadius:3.0f];
 //    self.maxRadius.inputView = self.picker;
 //    NSLog(@"check:%@", [self.picker numberOfComponents] );
 }
+
 
 - (void)didReceiveMemoryWarning
 {

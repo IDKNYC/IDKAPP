@@ -76,7 +76,23 @@
     // Set this view controller object as the delegate and data source for the table view
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    UIImage *image = [UIImage imageNamed: @"ios-search-top.png"];
+    UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 84)];
+    imageview.image = image;
+    imageview.contentMode = UIViewContentModeScaleAspectFill;
+    UILabel *label = [[UILabel alloc] initWithFrame:imageview.frame];
+    label.text =@"Test";
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont boldSystemFontOfSize:20.0f];
+    label.textAlignment = NSTextAlignmentCenter;
     
+    [imageview addSubview:label];
+    
+    
+    // set the text view to the image view
+    self.navigationItem.titleView = imageview;
+    self.navigationItem.titleView.frame = imageview.frame;
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
