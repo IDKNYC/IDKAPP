@@ -64,9 +64,9 @@
         NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init ];
         [currencyFormatter setLocale:[NSLocale currentLocale]];
         [currencyFormatter setMaximumFractionDigits:2];
-        [currencyFormatter setMinimumFractionDigits:2];
         [currencyFormatter setAlwaysShowsDecimalSeparator:YES];
         [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        
         
         NSNumber *someAmount = [NSNumber numberWithDouble:[self.maxPrice.text doubleValue]];
         NSString *string = [currencyFormatter stringFromNumber:someAmount];
@@ -153,7 +153,7 @@
     _picker.hidden = NO;
 }
 
-- (IBAction)valueCanged:(id)sender {
+- (IBAction)valueChanged:(id)sender {
     
     if( sender == self.maxRadius ) {
         NSLog(@" raidus is %@", self.maxRadius.text );
@@ -171,7 +171,10 @@
             [alert show];
         }
     } else if ( sender == self.maxPrice ) {
+        NSLog(@"Category: %@", self.category);
+        
         if( ![_category  isEqual: @"Events"] ) {
+            
             NSString *priceInput = self.maxPrice.text;
             if( priceInput == nil || [ priceInput  isEqual: @""] ) {
                 return;
