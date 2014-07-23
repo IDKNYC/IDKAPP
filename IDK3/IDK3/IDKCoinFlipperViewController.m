@@ -39,7 +39,7 @@
     
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
-    self.result = [[UILabel alloc] initWithFrame:CGRectMake(20, 360, 280, 22)];
+    self.result = [[UILabel alloc] initWithFrame:CGRectMake(20, 310, 280, 22)];
     self.result.textAlignment = NSTextAlignmentCenter;
     self.result.font = [UIFont systemFontOfSize:20];
     self.result.alpha = 0.0;
