@@ -51,18 +51,6 @@
     UIImage *image = [UIImage imageNamed: @"randomizer.png"];
     self.navigationController.navigationBar.topItem.title = @"Back";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    //self.navigationItem.leftBarButtonItem.title = @"Back";
-    /*UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 84)];
-     imageview.image = image;
-     imageview.contentMode = UIViewContentModeScaleAspectFill;
-     UILabel *label = [[UILabel alloc] initWithFrame:imageview.frame];
-     label.text =@"IDK!?";
-     label.textColor = [UIColor whiteColor];
-     label.font = [UIFont boldSystemFontOfSize:20.0f];
-     label.textAlignment = NSTextAlignmentCenter;
-     label.frame = CGRectMake(20, 20, 140, 64);
-     self.navigationItem.titleView = imageview;
-     [imageview addSubview:label];*/
     [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],

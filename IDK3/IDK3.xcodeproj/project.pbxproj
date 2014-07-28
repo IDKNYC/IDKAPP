@@ -17,6 +17,7 @@
 		DDAD0D44197EE2C9001D2D76 /* ios-top.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAD0D41197EE2C9001D2D76 /* ios-top.png */; };
 		DDAD0D45197EE2C9001D2D76 /* ios-result-view.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAD0D42197EE2C9001D2D76 /* ios-result-view.png */; };
 		DDAD0D46197EE2C9001D2D76 /* ios-search-top.png in Resources */ = {isa = PBXBuildFile; fileRef = DDAD0D43197EE2C9001D2D76 /* ios-search-top.png */; };
+		E50431F1197F964000E21DCE /* jsonExamples.js in Sources */ = {isa = PBXBuildFile; fileRef = E50431F0197F964000E21DCE /* jsonExamples.js */; };
 		E5172366197F81B2009447AD /* randomizer.png in Resources */ = {isa = PBXBuildFile; fileRef = E5172365197F81B2009447AD /* randomizer.png */; };
 		E59B10861962F4C1009353A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59B10851962F4C1009353A7 /* Foundation.framework */; };
 		E59B10881962F4C1009353A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59B10871962F4C1009353A7 /* CoreGraphics.framework */; };
@@ -46,8 +47,6 @@
 		E59B10DA196372AF009353A7 /* IDKTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59B10D8196372AF009353A7 /* IDKTableViewCell.xib */; };
 		E59B10DD1963AAA0009353A7 /* IDKAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E59B10DC1963AAA0009353A7 /* IDKAnnotation.m */; };
 		E59B10E01964A051009353A7 /* getEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = E59B10DF1964A051009353A7 /* getEvents.m */; };
-		E59B10E2196748C8009353A7 /* idk.html in Resources */ = {isa = PBXBuildFile; fileRef = E59B10E1196748C7009353A7 /* idk.html */; };
-		E59B10E619687416009353A7 /* idk2.html in Resources */ = {isa = PBXBuildFile; fileRef = E59B10E519687416009353A7 /* idk2.html */; };
 		E5D7A37B19731B8F00DC6868 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D7A37A19731B8F00DC6868 /* CoreLocation.framework */; };
 		E5D7A37E19731C2000DC6868 /* IDKDummyEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D7A37D19731C2000DC6868 /* IDKDummyEvents.m */; };
 /* End PBXBuildFile section */
@@ -78,6 +77,7 @@
 		DDAD0D43197EE2C9001D2D76 /* ios-search-top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-search-top.png"; sourceTree = "<group>"; };
 		E5029B72196A07DC00BD74A7 /* IDK_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IDK_icon.png; sourceTree = "<group>"; };
 		E5029B73196A084200BD74A7 /* IDK_icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IDK_icon80.png; sourceTree = "<group>"; };
+		E50431F0197F964000E21DCE /* jsonExamples.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jsonExamples.js; sourceTree = "<group>"; };
 		E5172365197F81B2009447AD /* randomizer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = randomizer.png; sourceTree = "<group>"; };
 		E59B10821962F4C1009353A7 /* IDK3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IDK3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E59B10851962F4C1009353A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -117,8 +117,6 @@
 		E59B10DC1963AAA0009353A7 /* IDKAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDKAnnotation.m; sourceTree = "<group>"; };
 		E59B10DE1964A051009353A7 /* getEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getEvents.h; sourceTree = "<group>"; };
 		E59B10DF1964A051009353A7 /* getEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getEvents.m; sourceTree = "<group>"; };
-		E59B10E1196748C7009353A7 /* idk.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = idk.html; sourceTree = "<group>"; };
-		E59B10E519687416009353A7 /* idk2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = idk2.html; sourceTree = "<group>"; };
 		E5D7A37A19731B8F00DC6868 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E5D7A37C19731C2000DC6868 /* IDKDummyEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDKDummyEvents.h; sourceTree = "<group>"; };
 		E5D7A37D19731C2000DC6868 /* IDKDummyEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDKDummyEvents.m; sourceTree = "<group>"; };
@@ -155,6 +153,7 @@
 		E59B10791962F4C1009353A7 = {
 			isa = PBXGroup;
 			children = (
+				E50431F0197F964000E21DCE /* jsonExamples.js */,
 				E5172365197F81B2009447AD /* randomizer.png */,
 				DDAD0D351975AB3C001D2D76 /* IDKCommon.h */,
 				DDAD0D361975AB3C001D2D76 /* IDKCommon.m */,
@@ -200,8 +199,6 @@
 		E59B108D1962F4C1009353A7 /* IDK3 */ = {
 			isa = PBXGroup;
 			children = (
-				E59B10E1196748C7009353A7 /* idk.html */,
-				E59B10E519687416009353A7 /* idk2.html */,
 				E5D7A37C19731C2000DC6868 /* IDKDummyEvents.h */,
 				E5D7A37D19731C2000DC6868 /* IDKDummyEvents.m */,
 				DDAD0D3819798909001D2D76 /* IDKCoinFlipperViewController.h */,
@@ -353,7 +350,6 @@
 				DDAD0D46197EE2C9001D2D76 /* ios-search-top.png in Resources */,
 				E59B10BD1962F501009353A7 /* Main.storyboard in Resources */,
 				E59B10DA196372AF009353A7 /* IDKTableViewCell.xib in Resources */,
-				E59B10E2196748C8009353A7 /* idk.html in Resources */,
 				E59B10921962F4C1009353A7 /* InfoPlist.strings in Resources */,
 				DDAD0D45197EE2C9001D2D76 /* ios-result-view.png in Resources */,
 				DDAD0D40197EE1A0001D2D76 /* ios-result-view@2x.png in Resources */,
@@ -365,7 +361,6 @@
 				DD71D3D0197F5C3700997381 /* launcher.jpg in Resources */,
 				DDAD0D44197EE2C9001D2D76 /* ios-top.png in Resources */,
 				E5172366197F81B2009447AD /* randomizer.png in Resources */,
-				E59B10E619687416009353A7 /* idk2.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +381,7 @@
 			files = (
 				E59B10941962F4C1009353A7 /* main.m in Sources */,
 				E59B10981962F4C1009353A7 /* IDKAppDelegate.m in Sources */,
+				E50431F1197F964000E21DCE /* jsonExamples.js in Sources */,
 				E59B10E01964A051009353A7 /* getEvents.m in Sources */,
 				9511D7021975C116005A7631 /* IDKDetailsViewController.m in Sources */,
 				E59B109B1962F4C1009353A7 /* IDK3.xcdatamodeld in Sources */,

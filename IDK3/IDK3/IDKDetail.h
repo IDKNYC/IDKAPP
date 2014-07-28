@@ -2,6 +2,8 @@
 //  IDKDetail.h
 //  IDK3
 //
+//  Detail of event or restautnat
+//
 //  Created by SATOKO HIGHSTEIN on 7/1/14.
 //  Copyright (c) 2014 SATOKO HIGHSTEIN. All rights reserved.
 //
@@ -15,7 +17,7 @@
 @property NSString *address;
 @property NSString *date;
 @property NSString *time;
-@property NSString *Name;
+@property NSString *Name;   // name of the event. in the case of restaurant, name of the establishment
 @property NSString *info;
 @property NSString *iconPath;
 @property NSString *photoPath;

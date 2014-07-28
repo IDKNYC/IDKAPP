@@ -2,6 +2,9 @@
 //  IDKLauncherViewController.m
 //  IDK3
 //
+//
+//  input: raidus: 0.5, 1, 2, 5 or 10
+//  budget: 1, 2, 3 or 4 for restaurants, dollar amount for events
 //  Created by SATOKO HIGHSTEIN on 7/1/14.
 //  Copyright (c) 2014 IDKNY. All rights reserved.
 //
@@ -35,6 +38,9 @@
             dummyPrice = @4;
         }
         
+        // --- price is entered as string with "$" prepended
+        //      parsing it to remove the "$" and convert to NSNumber
+        
         NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
         [f setNumberStyle:NSNumberFormatterDecimalStyle ];
         
@@ -47,7 +53,6 @@
         } else {
             shortString = self.maxPrice.text;
         }
-        //        NSString *shortString = [ self.maxPrice.text  substringWithRange:NSMakeRange(1,  _maxPrice.text.length-1 )];
         
         NSLog(@"%@", shortString);
         
@@ -58,6 +63,7 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    // --- this will dismiss the decimal/number pad
     [self.view endEditing:YES];
 }
 
@@ -75,9 +81,6 @@
     if([ self.category isEqualToString:@"Events"]) {
         // --- set the prepending $ sign
         NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init ];
-//        [currencyFormatter setLocale:[NSLocale currentLocale]];
-//        [currencyFormatter setMaximumFractionDigits:2];
-//        [currencyFormatter setAlwaysShowsDecimalSeparator:YES];
         [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
         
         
@@ -87,7 +90,7 @@
         self.maxPrice.text = string;
     } else {
         NSNumberFormatter *blankFormatter = [[ NSNumberFormatter alloc] init ];
-        [ blankFormatter setNumberStyle:NSNumberFormatterNoStyle ];
+        [ blankFormatter setNumberStyle:NSNumberFormatterNoStyle ]; // -- removes the "$" sign
         NSNumber *someAmount = [ NSNumber numberWithDouble:[ self.maxPrice.text doubleValue]];
         if( [someAmount isEqual: @0 ]) {
             someAmount = @1;
@@ -104,10 +107,9 @@
     self.catSelector = [[UISegmentedControl alloc] initWithItems:categories];
     _catSelector.selectedSegmentIndex = 1;
     _category = [[NSMutableString alloc] initWithString:@"Events"];
-//    [_category setString: @"Events"];
+
 
     [self.catSelector addTarget:self action:@selector(pickOne:) forControlEvents:UIControlEventValueChanged];
-//    [self.view addSubview:self.catSelector];
 }
 
 -(IBAction) pickOne:(id)sender{
@@ -116,7 +118,7 @@
     [ self formatPriceField ];
     
     if( [_category isEqualToString:@"Events" ]){
-        self.maxPrice.placeholder = @"Max in $";
+        self.maxPrice.placeholder = @"Budget per person in $";
         
     } else {
         self.maxPrice.placeholder = @"1, 2, 3 or 4";
@@ -158,13 +160,6 @@
     _picker.hidden = YES;
 }
 
--(IBAction)textFieldReturn:(id)sender
-{
-    [self.maxRadius resignFirstResponder];
-    //    [self.view endEditing:YES];
-    _picker.hidden = NO;
-}
-
 - (IBAction)valueChanged:(id)sender {
     
     if( sender == self.maxRadius ) {
@@ -173,18 +168,18 @@
         if( radiusInput == nil || [radiusInput  isEqual: @""] ) {
             return;
         }
-        if(  ![ radiusInput isEqual:@"0.5" ] &&
+        if(  (!([ radiusInput isEqual:@"0.5" ] || [radiusInput isEqual:@".5"] ) ) &&
            ![ radiusInput isEqual:@"1" ] &&
            ![ radiusInput isEqual:@"2"] &&
            ![ radiusInput isEqual:@"5" ] &&
            ![ radiusInput isEqual:@"10" ] )   {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid radius" message:@"Must be 0.5, 1, 2, 5 or 10" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil ];
             
-            self.maxRadius.text = @"0.5";
+            // Default to 2 mile
+            self.maxRadius.text = @"2";
             [alert show];
         }
     } else if ( sender == self.maxPrice ) {
-         NSLog(@"Category: %@", self.category);
         
         if( ![_category  isEqual: @"Events"] ) {
             NSString *priceInput = self.maxPrice.text;
@@ -198,7 +193,6 @@
                 
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid price level" message:@"Must be 1, 2, 3 or 4" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil ];
                 
-                self.maxRadius.text = @"1";
                 [alert show];
                 self.maxPrice.text = @"1";
 
@@ -208,12 +202,8 @@
 
         }
     }
-    
 }
 
-
-
-// --------------- //
 
 - (void)viewDidLoad
 {
@@ -223,30 +213,14 @@
     [self initPicker];
     
     self.maxPrice.text = @"1";
-    self.maxRadius.text = @"5";
+    self.maxRadius.text = @"2"; // 2 miles is probably good enough radius to start with
     [ self formatPriceField ];
-    
     
     [[self.searchButton layer] setBorderWidth:3.0f];
     [[self.searchButton layer] setBorderColor:[UIColor grayColor].CGColor];
     
-    
     [[self.randomizerButton layer] setBorderWidth:3.0f];
     [[self.randomizerButton layer] setBorderColor:[UIColor grayColor].CGColor];
-
-    
-    /*self.searchButton.layer.borderWidth = 1.0f;
-    self.searchButton.layer.cornerRadius = 6.0f; 
-    self.searchButton.layer.borderColor = [UIColor grayColor].CGColor;
-    
-    self.randomizerButton.layer.borderWidth = 1.0;
-    self.randomizerButton.layer.cornerRadius = 6.0;
-    self.randomizerButton.layer.borderColor = [UIColor grayColor].CGColor; */
-
-    
-//    [[self.searchButton layer] setCornerRadius:3.0f];
-//    self.maxRadius.inputView = self.picker;
-//    NSLog(@"check:%@", [self.picker numberOfComponents] );
 }
 
 

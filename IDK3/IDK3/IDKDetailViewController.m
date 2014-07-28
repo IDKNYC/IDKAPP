@@ -29,17 +29,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-
     CLLocationCoordinate2D coord;
-//    if([self.selectedVenue.lat]){}
-//    if( self.selectedVenue.lat != *nil) {
-        coord.latitude = [self.selectedVenue.lat doubleValue];
-        coord.longitude = [self.selectedVenue.lng doubleValue];
-//    } else {
-//        coord.latitude = 40.7679;
-//        coord.longitude = -73.9650;
-//    }
-    
+    coord.latitude = [self.selectedVenue.lat doubleValue];
+    coord.longitude = [self.selectedVenue.lng doubleValue];
     
     MKCoordinateSpan span = {.latitudeDelta =  0.020, .longitudeDelta =  0.020};
     MKCoordinateRegion region = {coord, span};
@@ -51,9 +43,6 @@
 
     [_myMap addAnnotation:annotation];
     [_myMap setRegion:region animated:YES];
-    
-    
-    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -93,6 +82,8 @@
     [self.Logo setImage:image];
 //    UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3092/2915896504_a88b69c9de.jpg"]]];
 //    self.logo = [[UIImageView alloc] initWithImage: image];
+    
+    
     if( self.selectedVenue.time == nil) {
         self.Date.hidden = true;
         [self.Date sizeToFit];
@@ -114,14 +105,6 @@
         self.venueName.font = [UIFont systemFontOfSize:17.0f];
         self.infoLong.text = [NSMutableString stringWithFormat:@"Info:\n%@", self.selectedVenue.info];
     }
-    
-
-    
-    // [self viewWillAppear:YES];
-    //[self.view addSubview:self.Logo];
-    
-    
-
 }
 
 - (void) viewDidAppear:(BOOL)animated

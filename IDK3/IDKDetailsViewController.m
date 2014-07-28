@@ -118,6 +118,7 @@
     }
     
     // -- setting the correct path to get images
+//    NSLog( @"photoPath:")
     NSString *pathToPhoto = [[ NSString alloc] init ];
     if( ![self.selectedVenue.photoPath  isEqual: @""]  ) {
         pathToPhoto = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/photo?maxheight=180&maxwidth=280&photoreference=%@", self.selectedVenue.photoPath ];
@@ -130,7 +131,22 @@
     NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
     UIImage *image = [UIImage imageWithData:imageData];
     
-    if (image) {
+    // --- we'll need to convert this to asynchronous process
+    //     iOS loads images from url that way
+//    NSURL *imageURL = [NSURL URLWithString:@"http://example.com/demo.jpg"];
+//    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+//        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+//        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            // Update the UI
+//            self.imageView.image = [UIImage imageWithData:imageData];
+//        });
+//    });
+    //
+    
+    
+    if ( ![pathToPhoto isEqual:nil] ) {
         self.logo = [[UIImageView alloc] initWithImage:image];
         self.logo.frame = CGRectMake(self.logo.frame.origin.x, y, self.logo.frame.size.width, self.logo.frame.size.height);
         self.logo.center = CGPointMake(self.view.bounds.size.width/2.0, self.logo.center.y);
@@ -157,12 +173,14 @@
         y = self.address.frame.origin.y + self.address.frame.size.height + 10;
     }
     // Map
-    self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(20, y, 280, 180)];
+    self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(20, y, 280, 320)];
     self.mapView.showsUserLocation = YES;
     self.mapView.zoomEnabled = YES;
     self.mapView.userInteractionEnabled = NO;
     [self.scrollView addSubview:self.mapView];
     y+= 20;
+    
+//    [mapView setCenterCoordinate:myCoord zoomLevel:13 animated:YES];
 
     if (y + self.mapView.frame.size.height < self.view.bounds.size.height) {
         self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height + 1.0);
@@ -180,11 +198,12 @@
     CLLocationCoordinate2D coord;
     coord.latitude =  [self.selectedVenue.lat doubleValue];
     coord.longitude = [self.selectedVenue.lng doubleValue];
-    MKCoordinateSpan span = {.latitudeDelta =  0.002, .longitudeDelta =  0.002};
+    MKCoordinateSpan span = {.latitudeDelta =  0.010, .longitudeDelta =  0.010};
     MKCoordinateRegion region = {coord, span};
-    IDKAnnotation *annotation = [[IDKAnnotation alloc]initWithCoordinate:coord title:self.selectedVenue.venueName];
+    IDKAnnotation *annotation = [[IDKAnnotation alloc]initWithCoordinate:coord title:self.selectedVenue.venueName ];
     [self.mapView addAnnotation:annotation];
     [self.mapView setRegion:region animated:YES];
+    self.mapView.zoomEnabled = YES;
 }
 
 
